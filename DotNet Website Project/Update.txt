@@ -1,0 +1,2 @@
+This folder has including all ASP.NET MVC 5 project of us , uses Visual Studio IDE.
+- Should import Solution in folder into Visual Studio .
