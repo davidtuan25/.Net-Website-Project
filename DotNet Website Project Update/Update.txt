@@ -1,1 +1,4 @@
 
+This folder is used for everyone push your update code to project . 
+Everyone just clone this folder before processing make something new , after you finish new code , push it comeback this folder and everyone check it .
+If nobody have bug or error , we will update it into DotNet Website Project folder [Final] .
