@@ -1,0 +1,654 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PartTimeJobModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BONUS_TIME">
+    <Key>
+      <PropertyRef Name="BONUS_TIME_ID" />
+    </Key>
+    <Property Name="BONUS_TIME_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="START_TIME" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="END_TIME" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FEED_BACKLIST">
+    <Key>
+      <PropertyRef Name="RECUMENT_ID" />
+      <PropertyRef Name="FEEDBACK_EMPLOYER" />
+      <PropertyRef Name="FEEDBACK_EMPLOYEE" />
+    </Key>
+    <Property Name="RECUMENT_ID" Type="int" Nullable="false" />
+    <Property Name="FEEDBACK_EMPLOYER" Type="int" Nullable="false" />
+    <Property Name="FEEDBACK_EMPLOYEE" Type="int" Nullable="false" />
+    <Property Name="STAR_CONSIDER" Type="int" />
+    <Property Name="CONTENT" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="JOB">
+    <Key>
+      <PropertyRef Name="JOB_ID" />
+    </Key>
+    <Property Name="JOB_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CATEGORY_ID" Type="int" Nullable="false" />
+    <Property Name="JOB_CODE" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="JOB_NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="MINIMUM_WAGE" Type="float" />
+    <Property Name="MAXIMUM_WAGE" Type="float" />
+    <Property Name="TOWN_ID" Type="int" />
+    <Property Name="JOB_REQUIREMENT" Type="nvarchar" MaxLength="255" />
+    <Property Name="JOB_DESCRIPTION" Type="nvarchar" MaxLength="255" />
+    <Property Name="SHIFT_WORK" Type="int" />
+  </EntityType>
+  <EntityType Name="JOB_CATEGORY">
+    <Key>
+      <PropertyRef Name="CATEGORY_ID" />
+    </Key>
+    <Property Name="CATEGORY_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CATEGORY_NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="JOB_RECUMENT">
+    <Key>
+      <PropertyRef Name="RECUMENT_ID" />
+    </Key>
+    <Property Name="RECUMENT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EMPLOYER_ID" Type="int" Nullable="false" />
+    <Property Name="EMPLOYEE_AMOUNT" Type="int" />
+    <Property Name="JOB_ID" Type="int" />
+    <Property Name="START_DATE" Type="varchar" MaxLength="50" />
+    <Property Name="WORK_MONTH_AMOUNT" Type="int" />
+    <Property Name="CREATED_DATE" Type="varchar" MaxLength="50" />
+    <Property Name="APPROVAL_DEADLINE" Type="varchar" MaxLength="50" />
+    <Property Name="REFERRAL_WAGE_COST" Type="float" />
+    <Property Name="RECUMENT_STATUS" Type="int" />
+  </EntityType>
+  <EntityType Name="JOB_RECUMENT_PROCESSING">
+    <Key>
+      <PropertyRef Name="RECUMENT_ID" />
+      <PropertyRef Name="EMPLOYEE_ID" />
+    </Key>
+    <Property Name="RECUMENT_ID" Type="int" Nullable="false" />
+    <Property Name="EMPLOYEE_ID" Type="int" Nullable="false" />
+    <Property Name="APPLYING_DATE" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="APPROVAL_STATUS" Type="bit" />
+    <Property Name="JOB_STATUS" Type="int" />
+    <Property Name="WAGE_PAYMENT_STATUS" Type="int" />
+  </EntityType>
+  <EntityType Name="JOB_WAGE_BILL">
+    <Key>
+      <PropertyRef Name="JOB_BILL_ID" />
+    </Key>
+    <Property Name="JOB_BILL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RECUMENT_ID" Type="int" Nullable="false" />
+    <Property Name="EMPLOYER_ID" Type="int" />
+    <Property Name="EMPLOYEE_ID" Type="int" />
+    <Property Name="JOB_WAGE_COST" Type="float" />
+    <Property Name="EMLOYER_CARDNUMBER" Type="varchar" MaxLength="20" />
+    <Property Name="EMPLOYEE_CARDNUMBER" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="PROFILE">
+    <Key>
+      <PropertyRef Name="PROFILE_ID" />
+    </Key>
+    <Property Name="PROFILE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FIRST_NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="LAST_NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="IDENTITY_CARD" Type="char" MaxLength="12" />
+    <Property Name="BIRTHDAY" Type="varchar" MaxLength="10" />
+    <Property Name="SEX" Type="varchar" MaxLength="10" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="50" />
+    <Property Name="PHONE" Type="int" />
+    <Property Name="TOWN_ID" Type="int" />
+    <Property Name="ADDRESS" Type="nvarchar" MaxLength="100" />
+    <Property Name="AVATAR" Type="varchar" MaxLength="100" />
+    <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="PROVINCE">
+    <Key>
+      <PropertyRef Name="PROVINCE_ID" />
+    </Key>
+    <Property Name="PROVINCE_ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PROVINCE_NAME" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="REFERRAL_WAGE_BILL">
+    <Key>
+      <PropertyRef Name="REFERRAL_ID" />
+    </Key>
+    <Property Name="REFERRAL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RECUMENT_ID" Type="int" Nullable="false" />
+    <Property Name="REFERRAL_WAGE_COST" Type="float" />
+    <Property Name="PAYMENT_DATE" Type="varchar" MaxLength="50" />
+    <Property Name="CARD_NUMBER" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ROLE">
+    <Key>
+      <PropertyRef Name="ROLE_ID" />
+    </Key>
+    <Property Name="ROLE_ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ROLE_NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SHIFT_WORK_SCHEDULE">
+    <Key>
+      <PropertyRef Name="SHIFT_ID" />
+    </Key>
+    <Property Name="SHIFT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MON_WORK_TIME" Type="int" />
+    <Property Name="TUES_WORK_TIME" Type="int" />
+    <Property Name="WED_WORK_TIME" Type="int" />
+    <Property Name="THURS_WORK_TIME" Type="int" />
+    <Property Name="FRI_WORK_TIME" Type="int" />
+    <Property Name="SAT_WORK_TIME" Type="int" />
+    <Property Name="SUN_WORK_TIME" Type="int" />
+  </EntityType>
+  <EntityType Name="TOWN">
+    <Key>
+      <PropertyRef Name="TOWN_ID" />
+    </Key>
+    <Property Name="TOWN_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PROVINCE_ID" Type="tinyint" Nullable="false" />
+    <Property Name="TOWN_NAME" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="TYPEPAYCARD">
+    <Key>
+      <PropertyRef Name="TYPEPAYCARD_ID" />
+    </Key>
+    <Property Name="TYPEPAYCARD_ID" Type="tinyint" Nullable="false" />
+    <Property Name="PAYCARD_NAME" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="USER">
+    <Key>
+      <PropertyRef Name="USER_ID" />
+    </Key>
+    <Property Name="USER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USERNAME" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PASSWORD" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="USER_STATUS" Type="tinyint" />
+    <Property Name="ROLE_ID" Type="tinyint" />
+    <Property Name="JOINED_DATE" Type="varchar" MaxLength="10" />
+    <Property Name="FACEBOOK_ID" Type="varchar" MaxLength="100" />
+    <Property Name="GMAIL_ID" Type="varchar" MaxLength="100" />
+    <Property Name="RESET_TOKEN" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="USERPAYCARDS">
+    <Key>
+      <PropertyRef Name="CARD_NUMBER" />
+    </Key>
+    <Property Name="PAYCARD_NO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CARD_NUMBER" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PROFILE_ID" Type="int" Nullable="false" />
+    <Property Name="TYPEPAYCARD_ID" Type="tinyint" Nullable="false" />
+    <Property Name="NOW_USING" Type="bit" />
+  </EntityType>
+  <EntityType Name="WORK_TIME">
+    <Key>
+      <PropertyRef Name="WORK_TIME_ID" />
+    </Key>
+    <Property Name="WORK_TIME_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="START_TIME" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="END_TIME" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FIRST_BONUSTIME_ID" Type="int" />
+    <Property Name="SECOND_BONUSTIME_ID" Type="int" />
+  </EntityType>
+  <Association Name="FK_CARD">
+    <End Role="USERPAYCARDS" Type="Self.USERPAYCARDS" Multiplicity="0..1" />
+    <End Role="REFERRAL_WAGE_BILL" Type="Self.REFERRAL_WAGE_BILL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERPAYCARDS">
+        <PropertyRef Name="CARD_NUMBER" />
+      </Principal>
+      <Dependent Role="REFERRAL_WAGE_BILL">
+        <PropertyRef Name="CARD_NUMBER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CARD2">
+    <End Role="USERPAYCARDS" Type="Self.USERPAYCARDS" Multiplicity="0..1" />
+    <End Role="JOB_WAGE_BILL" Type="Self.JOB_WAGE_BILL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERPAYCARDS">
+        <PropertyRef Name="CARD_NUMBER" />
+      </Principal>
+      <Dependent Role="JOB_WAGE_BILL">
+        <PropertyRef Name="EMLOYER_CARDNUMBER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CARD3">
+    <End Role="USERPAYCARDS" Type="Self.USERPAYCARDS" Multiplicity="0..1" />
+    <End Role="JOB_WAGE_BILL" Type="Self.JOB_WAGE_BILL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERPAYCARDS">
+        <PropertyRef Name="CARD_NUMBER" />
+      </Principal>
+      <Dependent Role="JOB_WAGE_BILL">
+        <PropertyRef Name="EMPLOYEE_CARDNUMBER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CATE">
+    <End Role="JOB_CATEGORY" Type="Self.JOB_CATEGORY" Multiplicity="1" />
+    <End Role="JOB" Type="Self.JOB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JOB_CATEGORY">
+        <PropertyRef Name="CATEGORY_ID" />
+      </Principal>
+      <Dependent Role="JOB">
+        <PropertyRef Name="CATEGORY_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EMP">
+    <End Role="PROFILE" Type="Self.PROFILE" Multiplicity="1" />
+    <End Role="JOB_RECUMENT_PROCESSING" Type="Self.JOB_RECUMENT_PROCESSING" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROFILE">
+        <PropertyRef Name="PROFILE_ID" />
+      </Principal>
+      <Dependent Role="JOB_RECUMENT_PROCESSING">
+        <PropertyRef Name="EMPLOYEE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EMP1">
+    <End Role="PROFILE" Type="Self.PROFILE" Multiplicity="1" />
+    <End Role="FEED_BACKLIST" Type="Self.FEED_BACKLIST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROFILE">
+        <PropertyRef Name="PROFILE_ID" />
+      </Principal>
+      <Dependent Role="FEED_BACKLIST">
+        <PropertyRef Name="FEEDBACK_EMPLOYER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EMP2">
+    <End Role="PROFILE" Type="Self.PROFILE" Multiplicity="1" />
+    <End Role="FEED_BACKLIST" Type="Self.FEED_BACKLIST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROFILE">
+        <PropertyRef Name="PROFILE_ID" />
+      </Principal>
+      <Dependent Role="FEED_BACKLIST">
+        <PropertyRef Name="FEEDBACK_EMPLOYEE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EMP3">
+    <End Role="PROFILE" Type="Self.PROFILE" Multiplicity="0..1" />
+    <End Role="JOB_WAGE_BILL" Type="Self.JOB_WAGE_BILL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROFILE">
+        <PropertyRef Name="PROFILE_ID" />
+      </Principal>
+      <Dependent Role="JOB_WAGE_BILL">
+        <PropertyRef Name="EMPLOYER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EMP4">
+    <End Role="PROFILE" Type="Self.PROFILE" Multiplicity="0..1" />
+    <End Role="JOB_WAGE_BILL" Type="Self.JOB_WAGE_BILL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROFILE">
+        <PropertyRef Name="PROFILE_ID" />
+      </Principal>
+      <Dependent Role="JOB_WAGE_BILL">
+        <PropertyRef Name="EMPLOYEE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EMPLOYER">
+    <End Role="PROFILE" Type="Self.PROFILE" Multiplicity="1" />
+    <End Role="JOB_RECUMENT" Type="Self.JOB_RECUMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROFILE">
+        <PropertyRef Name="PROFILE_ID" />
+      </Principal>
+      <Dependent Role="JOB_RECUMENT">
+        <PropertyRef Name="EMPLOYER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_F">
+    <End Role="WORK_TIME" Type="Self.WORK_TIME" Multiplicity="0..1" />
+    <End Role="SHIFT_WORK_SCHEDULE" Type="Self.SHIFT_WORK_SCHEDULE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORK_TIME">
+        <PropertyRef Name="WORK_TIME_ID" />
+      </Principal>
+      <Dependent Role="SHIFT_WORK_SCHEDULE">
+        <PropertyRef Name="FRI_WORK_TIME" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JOB1">
+    <End Role="JOB" Type="Self.JOB" Multiplicity="0..1" />
+    <End Role="JOB_RECUMENT" Type="Self.JOB_RECUMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JOB">
+        <PropertyRef Name="JOB_ID" />
+      </Principal>
+      <Dependent Role="JOB_RECUMENT">
+        <PropertyRef Name="JOB_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_M">
+    <End Role="WORK_TIME" Type="Self.WORK_TIME" Multiplicity="0..1" />
+    <End Role="SHIFT_WORK_SCHEDULE" Type="Self.SHIFT_WORK_SCHEDULE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORK_TIME">
+        <PropertyRef Name="WORK_TIME_ID" />
+      </Principal>
+      <Dependent Role="SHIFT_WORK_SCHEDULE">
+        <PropertyRef Name="MON_WORK_TIME" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PV">
+    <End Role="PROVINCE" Type="Self.PROVINCE" Multiplicity="1" />
+    <End Role="TOWN" Type="Self.TOWN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROVINCE">
+        <PropertyRef Name="PROVINCE_ID" />
+      </Principal>
+      <Dependent Role="TOWN">
+        <PropertyRef Name="PROVINCE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RECU">
+    <End Role="JOB_RECUMENT" Type="Self.JOB_RECUMENT" Multiplicity="1" />
+    <End Role="JOB_RECUMENT_PROCESSING" Type="Self.JOB_RECUMENT_PROCESSING" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JOB_RECUMENT">
+        <PropertyRef Name="RECUMENT_ID" />
+      </Principal>
+      <Dependent Role="JOB_RECUMENT_PROCESSING">
+        <PropertyRef Name="RECUMENT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RECU2">
+    <End Role="JOB_RECUMENT" Type="Self.JOB_RECUMENT" Multiplicity="1" />
+    <End Role="FEED_BACKLIST" Type="Self.FEED_BACKLIST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JOB_RECUMENT">
+        <PropertyRef Name="RECUMENT_ID" />
+      </Principal>
+      <Dependent Role="FEED_BACKLIST">
+        <PropertyRef Name="RECUMENT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RECU3">
+    <End Role="JOB_RECUMENT" Type="Self.JOB_RECUMENT" Multiplicity="1" />
+    <End Role="REFERRAL_WAGE_BILL" Type="Self.REFERRAL_WAGE_BILL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JOB_RECUMENT">
+        <PropertyRef Name="RECUMENT_ID" />
+      </Principal>
+      <Dependent Role="REFERRAL_WAGE_BILL">
+        <PropertyRef Name="RECUMENT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RECU4">
+    <End Role="JOB_RECUMENT" Type="Self.JOB_RECUMENT" Multiplicity="1" />
+    <End Role="JOB_WAGE_BILL" Type="Self.JOB_WAGE_BILL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JOB_RECUMENT">
+        <PropertyRef Name="RECUMENT_ID" />
+      </Principal>
+      <Dependent Role="JOB_WAGE_BILL">
+        <PropertyRef Name="RECUMENT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ROLE">
+    <End Role="ROLE" Type="Self.ROLE" Multiplicity="0..1" />
+    <End Role="USER" Type="Self.USER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROLE">
+        <PropertyRef Name="ROLE_ID" />
+      </Principal>
+      <Dependent Role="USER">
+        <PropertyRef Name="ROLE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_S">
+    <End Role="WORK_TIME" Type="Self.WORK_TIME" Multiplicity="0..1" />
+    <End Role="SHIFT_WORK_SCHEDULE" Type="Self.SHIFT_WORK_SCHEDULE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORK_TIME">
+        <PropertyRef Name="WORK_TIME_ID" />
+      </Principal>
+      <Dependent Role="SHIFT_WORK_SCHEDULE">
+        <PropertyRef Name="SAT_WORK_TIME" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SHIFT1">
+    <End Role="SHIFT_WORK_SCHEDULE" Type="Self.SHIFT_WORK_SCHEDULE" Multiplicity="0..1" />
+    <End Role="JOB" Type="Self.JOB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SHIFT_WORK_SCHEDULE">
+        <PropertyRef Name="SHIFT_ID" />
+      </Principal>
+      <Dependent Role="JOB">
+        <PropertyRef Name="SHIFT_WORK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SU">
+    <End Role="WORK_TIME" Type="Self.WORK_TIME" Multiplicity="0..1" />
+    <End Role="SHIFT_WORK_SCHEDULE" Type="Self.SHIFT_WORK_SCHEDULE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORK_TIME">
+        <PropertyRef Name="WORK_TIME_ID" />
+      </Principal>
+      <Dependent Role="SHIFT_WORK_SCHEDULE">
+        <PropertyRef Name="SUN_WORK_TIME" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T">
+    <End Role="WORK_TIME" Type="Self.WORK_TIME" Multiplicity="0..1" />
+    <End Role="SHIFT_WORK_SCHEDULE" Type="Self.SHIFT_WORK_SCHEDULE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORK_TIME">
+        <PropertyRef Name="WORK_TIME_ID" />
+      </Principal>
+      <Dependent Role="SHIFT_WORK_SCHEDULE">
+        <PropertyRef Name="TUES_WORK_TIME" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TH">
+    <End Role="WORK_TIME" Type="Self.WORK_TIME" Multiplicity="0..1" />
+    <End Role="SHIFT_WORK_SCHEDULE" Type="Self.SHIFT_WORK_SCHEDULE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORK_TIME">
+        <PropertyRef Name="WORK_TIME_ID" />
+      </Principal>
+      <Dependent Role="SHIFT_WORK_SCHEDULE">
+        <PropertyRef Name="THURS_WORK_TIME" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TOWN">
+    <End Role="TOWN" Type="Self.TOWN" Multiplicity="0..1" />
+    <End Role="PROFILE" Type="Self.PROFILE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TOWN">
+        <PropertyRef Name="TOWN_ID" />
+      </Principal>
+      <Dependent Role="PROFILE">
+        <PropertyRef Name="TOWN_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TOWN2">
+    <End Role="TOWN" Type="Self.TOWN" Multiplicity="0..1" />
+    <End Role="JOB" Type="Self.JOB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TOWN">
+        <PropertyRef Name="TOWN_ID" />
+      </Principal>
+      <Dependent Role="JOB">
+        <PropertyRef Name="TOWN_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TYPEPAYCARD">
+    <End Role="TYPEPAYCARD" Type="Self.TYPEPAYCARD" Multiplicity="1" />
+    <End Role="USERPAYCARDS" Type="Self.USERPAYCARDS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TYPEPAYCARD">
+        <PropertyRef Name="TYPEPAYCARD_ID" />
+      </Principal>
+      <Dependent Role="USERPAYCARDS">
+        <PropertyRef Name="TYPEPAYCARD_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_W">
+    <End Role="WORK_TIME" Type="Self.WORK_TIME" Multiplicity="0..1" />
+    <End Role="SHIFT_WORK_SCHEDULE" Type="Self.SHIFT_WORK_SCHEDULE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WORK_TIME">
+        <PropertyRef Name="WORK_TIME_ID" />
+      </Principal>
+      <Dependent Role="SHIFT_WORK_SCHEDULE">
+        <PropertyRef Name="WED_WORK_TIME" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PartTimeJobModelStoreContainer">
+    <EntitySet Name="BONUS_TIME" EntityType="Self.BONUS_TIME" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FEED_BACKLIST" EntityType="Self.FEED_BACKLIST" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JOB" EntityType="Self.JOB" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JOB_CATEGORY" EntityType="Self.JOB_CATEGORY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JOB_RECUMENT" EntityType="Self.JOB_RECUMENT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JOB_RECUMENT_PROCESSING" EntityType="Self.JOB_RECUMENT_PROCESSING" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JOB_WAGE_BILL" EntityType="Self.JOB_WAGE_BILL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PROFILE" EntityType="Self.PROFILE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PROVINCE" EntityType="Self.PROVINCE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="REFERRAL_WAGE_BILL" EntityType="Self.REFERRAL_WAGE_BILL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ROLE" EntityType="Self.ROLE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SHIFT_WORK_SCHEDULE" EntityType="Self.SHIFT_WORK_SCHEDULE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TOWN" EntityType="Self.TOWN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TYPEPAYCARD" EntityType="Self.TYPEPAYCARD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USERPAYCARDS" EntityType="Self.USERPAYCARDS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WORK_TIME" EntityType="Self.WORK_TIME" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CARD" Association="Self.FK_CARD">
+      <End Role="USERPAYCARDS" EntitySet="USERPAYCARDS" />
+      <End Role="REFERRAL_WAGE_BILL" EntitySet="REFERRAL_WAGE_BILL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CARD2" Association="Self.FK_CARD2">
+      <End Role="USERPAYCARDS" EntitySet="USERPAYCARDS" />
+      <End Role="JOB_WAGE_BILL" EntitySet="JOB_WAGE_BILL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CARD3" Association="Self.FK_CARD3">
+      <End Role="USERPAYCARDS" EntitySet="USERPAYCARDS" />
+      <End Role="JOB_WAGE_BILL" EntitySet="JOB_WAGE_BILL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CATE" Association="Self.FK_CATE">
+      <End Role="JOB_CATEGORY" EntitySet="JOB_CATEGORY" />
+      <End Role="JOB" EntitySet="JOB" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EMP" Association="Self.FK_EMP">
+      <End Role="PROFILE" EntitySet="PROFILE" />
+      <End Role="JOB_RECUMENT_PROCESSING" EntitySet="JOB_RECUMENT_PROCESSING" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EMP1" Association="Self.FK_EMP1">
+      <End Role="PROFILE" EntitySet="PROFILE" />
+      <End Role="FEED_BACKLIST" EntitySet="FEED_BACKLIST" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EMP2" Association="Self.FK_EMP2">
+      <End Role="PROFILE" EntitySet="PROFILE" />
+      <End Role="FEED_BACKLIST" EntitySet="FEED_BACKLIST" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EMP3" Association="Self.FK_EMP3">
+      <End Role="PROFILE" EntitySet="PROFILE" />
+      <End Role="JOB_WAGE_BILL" EntitySet="JOB_WAGE_BILL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EMP4" Association="Self.FK_EMP4">
+      <End Role="PROFILE" EntitySet="PROFILE" />
+      <End Role="JOB_WAGE_BILL" EntitySet="JOB_WAGE_BILL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EMPLOYER" Association="Self.FK_EMPLOYER">
+      <End Role="PROFILE" EntitySet="PROFILE" />
+      <End Role="JOB_RECUMENT" EntitySet="JOB_RECUMENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_F" Association="Self.FK_F">
+      <End Role="WORK_TIME" EntitySet="WORK_TIME" />
+      <End Role="SHIFT_WORK_SCHEDULE" EntitySet="SHIFT_WORK_SCHEDULE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JOB1" Association="Self.FK_JOB1">
+      <End Role="JOB" EntitySet="JOB" />
+      <End Role="JOB_RECUMENT" EntitySet="JOB_RECUMENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_M" Association="Self.FK_M">
+      <End Role="WORK_TIME" EntitySet="WORK_TIME" />
+      <End Role="SHIFT_WORK_SCHEDULE" EntitySet="SHIFT_WORK_SCHEDULE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PV" Association="Self.FK_PV">
+      <End Role="PROVINCE" EntitySet="PROVINCE" />
+      <End Role="TOWN" EntitySet="TOWN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RECU" Association="Self.FK_RECU">
+      <End Role="JOB_RECUMENT" EntitySet="JOB_RECUMENT" />
+      <End Role="JOB_RECUMENT_PROCESSING" EntitySet="JOB_RECUMENT_PROCESSING" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RECU2" Association="Self.FK_RECU2">
+      <End Role="JOB_RECUMENT" EntitySet="JOB_RECUMENT" />
+      <End Role="FEED_BACKLIST" EntitySet="FEED_BACKLIST" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RECU3" Association="Self.FK_RECU3">
+      <End Role="JOB_RECUMENT" EntitySet="JOB_RECUMENT" />
+      <End Role="REFERRAL_WAGE_BILL" EntitySet="REFERRAL_WAGE_BILL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RECU4" Association="Self.FK_RECU4">
+      <End Role="JOB_RECUMENT" EntitySet="JOB_RECUMENT" />
+      <End Role="JOB_WAGE_BILL" EntitySet="JOB_WAGE_BILL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ROLE" Association="Self.FK_ROLE">
+      <End Role="ROLE" EntitySet="ROLE" />
+      <End Role="USER" EntitySet="USER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_S" Association="Self.FK_S">
+      <End Role="WORK_TIME" EntitySet="WORK_TIME" />
+      <End Role="SHIFT_WORK_SCHEDULE" EntitySet="SHIFT_WORK_SCHEDULE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SHIFT1" Association="Self.FK_SHIFT1">
+      <End Role="SHIFT_WORK_SCHEDULE" EntitySet="SHIFT_WORK_SCHEDULE" />
+      <End Role="JOB" EntitySet="JOB" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SU" Association="Self.FK_SU">
+      <End Role="WORK_TIME" EntitySet="WORK_TIME" />
+      <End Role="SHIFT_WORK_SCHEDULE" EntitySet="SHIFT_WORK_SCHEDULE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T" Association="Self.FK_T">
+      <End Role="WORK_TIME" EntitySet="WORK_TIME" />
+      <End Role="SHIFT_WORK_SCHEDULE" EntitySet="SHIFT_WORK_SCHEDULE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TH" Association="Self.FK_TH">
+      <End Role="WORK_TIME" EntitySet="WORK_TIME" />
+      <End Role="SHIFT_WORK_SCHEDULE" EntitySet="SHIFT_WORK_SCHEDULE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TOWN" Association="Self.FK_TOWN">
+      <End Role="TOWN" EntitySet="TOWN" />
+      <End Role="PROFILE" EntitySet="PROFILE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TOWN2" Association="Self.FK_TOWN2">
+      <End Role="TOWN" EntitySet="TOWN" />
+      <End Role="JOB" EntitySet="JOB" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TYPEPAYCARD" Association="Self.FK_TYPEPAYCARD">
+      <End Role="TYPEPAYCARD" EntitySet="TYPEPAYCARD" />
+      <End Role="USERPAYCARDS" EntitySet="USERPAYCARDS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_W" Association="Self.FK_W">
+      <End Role="WORK_TIME" EntitySet="WORK_TIME" />
+      <End Role="SHIFT_WORK_SCHEDULE" EntitySet="SHIFT_WORK_SCHEDULE" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

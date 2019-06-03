@@ -1,0 +1,269 @@
+﻿
+@{
+    ViewBag.Title = "Cổng Thông Tin Việc Làm";
+    Layout = "~/Views/Shared/_FrontEndLayout.cshtml";
+}
+<style type="text/css">
+    .job-list img {
+	float: left;
+	display: inline-block;
+	margin-left: 35px;
+	margin-top: 2px;
+	width: 60px;
+	height: auto;
+    }
+
+/* ------------------------------------------------------------------- */
+/* Homepage Banner
+---------------------------------------------------------------------- */
+#banner {
+	max-height: 600px;
+	width: 100%;
+	display: inline-block;
+	position: relative;
+	background-repeat: no-repeat;
+	background-position: 50% !important;
+	background-size: cover;
+	margin-bottom: 35px;
+}
+
+#banner:before {
+	content:"";
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+	background-color: rgba(34,34,34,0.5);
+	position: absolute;
+}
+
+.search-container {
+	display: block;
+	width: 100%;
+	position: relative;
+	padding: 170px 0;
+	margin-top: -10px;
+}
+
+.search-container h2 {
+	font-size: 46px;
+	color: #fff;
+	margin-bottom: 30px;
+	letter-spacing: -1px;
+}
+
+.search-container input {
+	font-weight: 500;
+	font-size: 18px;
+	float: left;
+	box-sizing: border-box;
+	padding: 19px 20px;
+	border: none;
+	margin-right: 2%;
+	width: 44.5%;
+	float: left;
+}
+/* Form Icons */
+input.ico-01 { background: #fff url("/Content/images/Frontend/ico-01.png") no-repeat scroll 97% 20px / 21px 21px; }
+input.ico-02 { background: #fff url("/Content/images/Frontend/ico-02.png") no-repeat scroll 96% 20px / 14px 21px; }
+.search-container input:focus { border: none; }
+
+
+</style>
+
+<div id="banner" style="background: url(/Content/images/Frontend/banner-home-01.jpg);background-size:cover;">
+    <div class="container">
+        <div class="sixteen columns">
+
+            <div class="search-container">
+
+                <!-- Form -->
+                <h2>Tìm công việc theo :</h2>
+                <input type="text" class="ico-01" placeholder="Tên công việc, tiêu đề bài tin, công ty ..." value="" />
+                <input type="text" class="ico-02" placeholder="tỉnh, thành phố, vùng miền, ..." value="" />
+                <button><i class="fa fa-search"></i></button>
+
+                <!-- Announce -->
+                <div class="announce">
+                    Chúng tôi có <strong>15 000</strong> công việc cho bạn!
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Content
+================================================== -->
+<div id="categories">
+    <!-- Categories Group -->
+    <div class="categories-group">
+        <div class="container">
+            <div class="four columns"><h4>Việc làm part-time</h4></div>
+            <div class="four columns">
+                <ul>
+                    <li><a href="#">Quán Cafe</a></li>
+                    <li><a href="#">Nhà hàng</a></li>
+                    <li><a href="#">Quán ăn</a></li>
+                    <li><a href="#">Tiệm trà sữa</a></li>
+                </ul>
+            </div>
+            <div class="four columns">
+                <ul>
+                    <li><a href="#">Việc làm văn phòng</a></li>
+                    <li><a href="#">Xưởng cơ khí</a></li>
+                    <li><a href="#">Việc làm online</a></li>
+                </ul>
+            </div>
+            <div class="four columns">
+                <ul>
+                    <li><a href="#">CSS</a></li>
+                    <li><a href="#">HTML5</a></li>
+                    <li><a href="#">Web Development</a></li>
+                    <li><a href="#">Web Design</a></li>
+                    <li><a href="#">eCommerce</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Categories Group -->
+    <div class="categories-group">
+        <div class="container">
+            <div class="four columns"><h4>Việc làm thời vụ</h4></div>
+            <div class="four columns">
+                <ul>
+                    <li><a href="#">Nhà hàng</a></li>
+                    <li><a href="#">Việc làm trong công ty</a></li>
+                    <li><a href="#">Việc làm tại nhà</a></li>
+                    <li><a href="#">Việc làm cuối tuần</a></li>
+                </ul>
+            </div>
+            <div class="four columns">
+                <ul>
+                    <li><a href="#">Art</a></li>
+                    <li><a href="#">3D</a></li>
+                    <li><a href="#">Adobe Illustrator</a></li>
+                    <li><a href="#">Drawing</a></li>
+                    <li><a href="#">Web Design</a></li>
+                    <li><a href="#">Cartoon</a></li>
+                    <li><a href="#">Graphics</a></li>
+                </ul>
+            </div>
+            <div class="four columns">
+                <ul>
+                    <li><a href="#">Fashion Design</a></li>
+                    <li><a href="#">WordPress</a></li>
+                    <li><a href="#">Editing</a></li>
+                    <li><a href="#">Writing</a></li>
+                    <li><a href="#">T-Shirt Design</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="divider-line"></div>
+<div class="margin-top-50"></div>
+
+
+<!-- Recent Works -->
+<div class="container">
+
+    <!-- Recent Jobs -->
+    <div class="eleven columns">
+        <div class="padding-right">
+            <h3 class="margin-bottom-25">Công việc gần đây</h3>
+            <ul class="job-list">
+                <li class="highlighted">
+                    <a href="job-page-alt.html">
+                        <img src="~/Content/images/Frontend/coffee1.jpg" alt="">
+                        <div class="job-list-content">
+                            <h4>Tuyển nhân viên bán cafe abc <span class="part-time">Part-Time</span></h4>
+                            <div class="job-icons">
+                                <span><i class="fa fa-briefcase"></i> Quán cafe Startup</span>
+                                <span><i class="fa fa-map-marker"></i> Q2, TPHCM</span>
+                                <span><i class="fa fa-money"></i> 15.000đ / giờ</span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="clearfix"></div>
+                </li>
+
+                <li>
+                    <a href="job-page.html">
+                        <img src="~/Content/images/Frontend/job-list-logo-02.png" alt="">
+                        <div class="job-list-content">
+                            <h4>Core PHP Developer for Site Maintenance <span class="part-time">Part-Time</span></h4>
+                            <div class="job-icons">
+                                <span><i class="fa fa-briefcase"></i> Cubico</span>
+                                <span><i class="fa fa-map-marker"></i> London</span>
+                                <span><i class="fa fa-money"></i> $50 / hour</span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="clearfix"></div>
+                </li>
+
+                <li>
+                    <a href="job-page.html">
+                        <img src="~/Content/images/Frontend/job-list-logo-03.png" alt="">
+                        <div class="job-list-content">
+                            <h4>Restaurant Team Member - Crew <span class="full-time">Full-Time</span></h4>
+                            <div class="job-icons">
+                                <span><i class="fa fa-briefcase"></i> King</span>
+                                <span><i class="fa fa-map-marker"></i> Sydney</span>
+                                <span><i class="fa fa-money"></i> $15 / hour</span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="clearfix"></div>
+                </li>
+
+                <li>
+                    <a href="job-page.html">
+                        <img src="~/Content/images/Frontend/job-list-logo-04.png" alt="">
+                        <div class="job-list-content">
+                            <h4>Power Systems User Experience Designer  <span class="internship">Internship</span></h4>
+                            <div class="job-icons">
+                                <span><i class="fa fa-briefcase"></i> Hexagon</span>
+                                <span><i class="fa fa-map-marker"></i> London</span>
+                                <span><i class="fa fa-money"></i> $75 / hour</span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="clearfix"></div>
+                </li>
+
+                <li>
+                    <a href="job-page.html">
+                        <img src="~/Content/images/Frontend/job-list-logo-05.png" alt="">
+                        <div class="job-list-content">
+                            <h4>iPhone / Android Music App Development <span class="temporary">Temporary</span></h4>
+                            <div class="job-icons">
+                                <span><i class="fa fa-briefcase"></i> Mates</span>
+                                <span><i class="fa fa-map-marker"></i> New York</span>
+                                <span><i class="fa fa-money"></i> $115 / hour</span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="clearfix"></div>
+                </li>
+            </ul>
+
+            <a href="browse-jobs.html" class="button centered"><i class="fa fa-plus-circle"></i> Xem thêm</a>
+            <div class="margin-bottom-55"></div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Infobox -->
+<div class="infobox margin-reset">
+    <div class="container">
+        <div class="sixteen columns">Làm giàu từ những công việc nhỏ<a href="my-account.html">Get Started</a></div>
+    </div>
+</div>

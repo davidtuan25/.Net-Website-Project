@@ -1,0 +1,620 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6FD6F28C-286C-4880-A703-8B35FFF7C55D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DotNet_Website_Project</RootNamespace>
+    <AssemblyName>DotNet Website Project</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44339</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Facebook.7.0.6\lib\net45\Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\FrontEndController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BONUS_TIME.cs">
+      <DependentUpon>DBConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBConnection.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBConnection.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBConnection.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBConnection.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBConnection.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FEED_BACKLIST.cs">
+      <DependentUpon>DBConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\JOB.cs">
+      <DependentUpon>DBConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\JOB_CATEGORY.cs">
+      <DependentUpon>DBConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\JOB_RECUMENT.cs">
+      <DependentUpon>DBConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\JOB_RECUMENT_PROCESSING.cs">
+      <DependentUpon>DBConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\JOB_WAGE_BILL.cs">
+      <DependentUpon>DBConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PROFILE.cs">
+      <DependentUpon>DBConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PROVINCE.cs">
+      <DependentUpon>DBConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\REFERRAL_WAGE_BILL.cs">
+      <DependentUpon>DBConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ROLE.cs">
+      <DependentUpon>DBConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SHIFT_WORK_SCHEDULE.cs">
+      <DependentUpon>DBConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TOWN.cs">
+      <DependentUpon>DBConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TYPEPAYCARD.cs">
+      <DependentUpon>DBConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USER.cs">
+      <DependentUpon>DBConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USERPAYCARD.cs">
+      <DependentUpon>DBConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WORK_TIME.cs">
+      <DependentUpon>DBConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pagesBackend\BackendLayout.Master.cs">
+      <DependentUpon>BackendLayout.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pagesBackend\BackendLayout.Master.designer.cs">
+      <DependentUpon>BackendLayout.Master</DependentUpon>
+    </Compile>
+    <Compile Include="pagesBackend\create-job.aspx.cs">
+      <DependentUpon>create-job.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pagesBackend\create-job.aspx.designer.cs">
+      <DependentUpon>create-job.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pagesBackend\list-job.aspx.cs">
+      <DependentUpon>list-job.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pagesBackend\list-job.aspx.designer.cs">
+      <DependentUpon>list-job.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pagesBackend\quanlyhoso.aspx.cs">
+      <DependentUpon>quanlyhoso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pagesBackend\quanlyhoso.aspx.designer.cs">
+      <DependentUpon>quanlyhoso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pagesBackend\quanlytaikhoan.aspx.cs">
+      <DependentUpon>quanlytaikhoan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pagesBackend\quanlytaikhoan.aspx.designer.cs">
+      <DependentUpon>quanlytaikhoan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pagesFrontend\dangky.aspx.cs">
+      <DependentUpon>dangky.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pagesFrontend\dangky.aspx.designer.cs">
+      <DependentUpon>dangky.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pagesFrontend\dangnhap.aspx.cs">
+      <DependentUpon>dangnhap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pagesFrontend\dangnhap.aspx.designer.cs">
+      <DependentUpon>dangnhap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pagesFrontend\FrontendLayout.Master.cs">
+      <DependentUpon>FrontendLayout.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pagesFrontend\FrontendLayout.Master.designer.cs">
+      <DependentUpon>FrontendLayout.Master</DependentUpon>
+    </Compile>
+    <Compile Include="pagesFrontend\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pagesFrontend\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pagesFrontend\job-page-alt.aspx.cs">
+      <DependentUpon>job-page-alt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pagesFrontend\job-page-alt.aspx.designer.cs">
+      <DependentUpon>job-page-alt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pagesFrontend\khoiphucmatkhau.aspx.cs">
+      <DependentUpon>khoiphucmatkhau.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pagesFrontend\khoiphucmatkhau.aspx.designer.cs">
+      <DependentUpon>khoiphucmatkhau.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pagesFrontend\quenmatkhau.aspx.cs">
+      <DependentUpon>quenmatkhau.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pagesFrontend\quenmatkhau.aspx.designer.cs">
+      <DependentUpon>quenmatkhau.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pagesFrontend\suathongtincanhan.aspx.cs">
+      <DependentUpon>suathongtincanhan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pagesFrontend\suathongtincanhan.aspx.designer.cs">
+      <DependentUpon>suathongtincanhan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pagesFrontend\thongtincanhan.aspx.cs">
+      <DependentUpon>thongtincanhan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pagesFrontend\thongtincanhan.aspx.designer.cs">
+      <DependentUpon>thongtincanhan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\backendCSS\bootstrap.min.css" />
+    <Content Include="Content\backendCSS\buttons.bootstrap4.css" />
+    <Content Include="Content\backendCSS\buttons.bootstrap4.min.css" />
+    <Content Include="Content\backendCSS\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\backendCSS\flag-icon.min.css" />
+    <Content Include="Content\backendCSS\style.css" />
+    <Content Include="Content\backendCSS\themify-icons.css" />
+    <Content Include="Content\bootstrapCSS\bootstrap.min.css" />
+    <Content Include="Content\bootstrapCSS\bootstrap22.min.css" />
+    <Content Include="Content\fonts\font-awesome.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\fontello.svg" />
+    <Content Include="Content\fonts\themify.svg" />
+    <Content Include="Content\frontendCSS\base.css" />
+    <Content Include="Content\frontendCSS\bootstrap.css" />
+    <Content Include="Content\frontendCSS\bootstrap.min.css" />
+    <Content Include="Content\frontendCSS\colors\beige.css" />
+    <Content Include="Content\frontendCSS\colors\blue.css" />
+    <Content Include="Content\frontendCSS\colors\brown.css" />
+    <Content Include="Content\frontendCSS\colors\celadon.css" />
+    <Content Include="Content\frontendCSS\colors\cherry.css" />
+    <Content Include="Content\frontendCSS\colors\cyan.css" />
+    <Content Include="Content\frontendCSS\colors\gray.css" />
+    <Content Include="Content\frontendCSS\colors\green.css" />
+    <Content Include="Content\frontendCSS\colors\navy.css" />
+    <Content Include="Content\frontendCSS\colors\olive.css" />
+    <Content Include="Content\frontendCSS\colors\orange.css" />
+    <Content Include="Content\frontendCSS\colors\peach.css" />
+    <Content Include="Content\frontendCSS\colors\pink.css" />
+    <Content Include="Content\frontendCSS\colors\purple.css" />
+    <Content Include="Content\frontendCSS\colors\red.css" />
+    <Content Include="Content\frontendCSS\colors\yellow.css" />
+    <Content Include="Content\frontendCSS\font-awesome.css" />
+    <Content Include="Content\frontendCSS\responsive.css" />
+    <Content Include="Content\frontendCSS\style.css" />
+    <Content Include="Content\images\Backend\admin.jpg" />
+    <Content Include="Content\images\Backend\avatar\1.jpg" />
+    <Content Include="Content\images\Backend\avatar\2.jpg" />
+    <Content Include="Content\images\Backend\avatar\3.jpg" />
+    <Content Include="Content\images\Backend\avatar\4.jpg" />
+    <Content Include="Content\images\Backend\avatar\5.jpg" />
+    <Content Include="Content\images\Backend\avatar\6.jpg" />
+    <Content Include="Content\images\Backend\logo.png" />
+    <Content Include="Content\images\Backend\logo2.png" />
+    <Content Include="Content\images\Backend\placeholder.png" />
+    <Content Include="Content\images\Backend\twitter_corner_black.png" />
+    <Content Include="Content\images\Backend\twitter_corner_blue.png" />
+    <Content Include="Content\images\Frontend\all-categories-photo.jpg" />
+    <Content Include="Content\images\Frontend\avatar-placeholder.png" />
+    <Content Include="Content\images\Frontend\banner-01.jpg" />
+    <Content Include="Content\images\Frontend\banner-02.jpg" />
+    <Content Include="Content\images\Frontend\banner-home-01.jpg" />
+    <Content Include="Content\images\Frontend\bg\bedge_grunge.png" />
+    <Content Include="Content\images\Frontend\bg\brushed_alu.png" />
+    <Content Include="Content\images\Frontend\bg\crisp_paper_ruffles.png" />
+    <Content Include="Content\images\Frontend\bg\diamond_upholstery.png" />
+    <Content Include="Content\images\Frontend\bg\light_toast.png" />
+    <Content Include="Content\images\Frontend\bg\linedpaper.png" />
+    <Content Include="Content\images\Frontend\bg\navy_blue.png" />
+    <Content Include="Content\images\Frontend\bg\noise_pattern_with_crosslines.png" />
+    <Content Include="Content\images\Frontend\bg\purty_wood.png" />
+    <Content Include="Content\images\Frontend\bg\retina_wood.png" />
+    <Content Include="Content\images\Frontend\bg\sativa.png" />
+    <Content Include="Content\images\Frontend\bg\shattered.png" />
+    <Content Include="Content\images\Frontend\bg\squared_metal.png" />
+    <Content Include="Content\images\Frontend\bg\stardust.png" />
+    <Content Include="Content\images\Frontend\bg\subtle_stripes.png" />
+    <Content Include="Content\images\Frontend\bg\textured_stripes.png" />
+    <Content Include="Content\images\Frontend\bg\tileable_wood_texture.png" />
+    <Content Include="Content\images\Frontend\bg\vichy.png" />
+    <Content Include="Content\images\Frontend\bg\washi.png" />
+    <Content Include="Content\images\Frontend\blog-post-01.jpg" />
+    <Content Include="Content\images\Frontend\blog-post-02.jpg" />
+    <Content Include="Content\images\Frontend\blog-post-03.jpg" />
+    <Content Include="Content\images\Frontend\blog-widget-01.png" />
+    <Content Include="Content\images\Frontend\blog-widget-02.png" />
+    <Content Include="Content\images\Frontend\blog-widget-03.png" />
+    <Content Include="Content\images\Frontend\coffee1.jpg" />
+    <Content Include="Content\images\Frontend\company-logo.png" />
+    <Content Include="Content\images\Frontend\famfamfam.png" />
+    <Content Include="Content\images\Frontend\ico-01.png" />
+    <Content Include="Content\images\Frontend\ico-02.png" />
+    <Content Include="Content\images\Frontend\job-banner.png" />
+    <Content Include="Content\images\Frontend\job-list-logo-01.png" />
+    <Content Include="Content\images\Frontend\job-list-logo-02.png" />
+    <Content Include="Content\images\Frontend\job-list-logo-03.png" />
+    <Content Include="Content\images\Frontend\job-list-logo-04.png" />
+    <Content Include="Content\images\Frontend\job-list-logo-05.png" />
+    <Content Include="Content\images\Frontend\job-page-photo.jpg" />
+    <Content Include="Content\images\Frontend\logo-01.png" />
+    <Content Include="Content\images\Frontend\logo-02.png" />
+    <Content Include="Content\images\Frontend\logo-03.png" />
+    <Content Include="Content\images\Frontend\logo-04.png" />
+    <Content Include="Content\images\Frontend\logo-05.png" />
+    <Content Include="Content\images\Frontend\logo-06.png" />
+    <Content Include="Content\images\Frontend\logo-07.png" />
+    <Content Include="Content\images\Frontend\logo.png" />
+    <Content Include="Content\images\Frontend\recent-post-01.jpg" />
+    <Content Include="Content\images\Frontend\recent-post-02.jpg" />
+    <Content Include="Content\images\Frontend\recent-post-03.jpg" />
+    <Content Include="Content\images\Frontend\resumes-list-avatar-01.png" />
+    <Content Include="Content\images\Frontend\resumes-list-avatar-02.png" />
+    <Content Include="Content\images\Frontend\resumes-list-avatar-03.png" />
+    <Content Include="Content\images\Frontend\start-up.jpg" />
+    <Content Include="Content\images\Frontend\testimonials-bg.jpg" />
+    <Content Include="Content\Site.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Models\DBConnection.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBConnection.edmx</DependentUpon>
+      <LastGenOutput>DBConnection.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DBConnection.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBConnection.edmx</DependentUpon>
+      <LastGenOutput>DBConnection.cs</LastGenOutput>
+    </Content>
+    <Content Include="pagesBackend\create-job.aspx" />
+    <Content Include="pagesBackend\list-job.aspx" />
+    <Content Include="pagesBackend\quanlyhoso.aspx" />
+    <Content Include="pagesBackend\quanlytaikhoan.aspx" />
+    <Content Include="pagesFrontend\dangky.aspx" />
+    <Content Include="pagesFrontend\dangnhap.aspx" />
+    <Content Include="pagesFrontend\index.aspx" />
+    <Content Include="pagesFrontend\job-page-alt.aspx" />
+    <Content Include="pagesFrontend\khoiphucmatkhau.aspx" />
+    <Content Include="pagesFrontend\quenmatkhau.aspx" />
+    <Content Include="pagesFrontend\suathongtincanhan.aspx" />
+    <Content Include="pagesFrontend\thongtincanhan.aspx" />
+    <Content Include="Scripts\Backend\datatable\buttons.bootstrap4.js" />
+    <Content Include="Scripts\Backend\datatable\buttons.bootstrap4.min.js" />
+    <Content Include="Scripts\Backend\datatable\buttons.colVis.min.js" />
+    <Content Include="Scripts\Backend\datatable\buttons.flash.min.js" />
+    <Content Include="Scripts\Backend\datatable\buttons.html5.min.js" />
+    <Content Include="Scripts\Backend\datatable\buttons.print.min.js" />
+    <Content Include="Scripts\Backend\datatable\datatables-init.js" />
+    <Content Include="Scripts\Backend\datatable\dataTables.bootstrap4.min.js" />
+    <Content Include="Scripts\Backend\datatable\dataTables.buttons.min.js" />
+    <Content Include="Scripts\Backend\datatable\jquery.dataTables.min.js" />
+    <Content Include="Scripts\Backend\datatable\jszip.min.js" />
+    <Content Include="Scripts\Backend\datatable\pdfmake.min.js" />
+    <Content Include="Scripts\Backend\datatable\vfs_fonts.js" />
+    <Content Include="Scripts\Backend\jquery.min.js" />
+    <Content Include="Scripts\Backend\main.js" />
+    <Content Include="Scripts\Backend\popper.js" />
+    <Content Include="Scripts\Backend\selectFX\cs-select.css" />
+    <Content Include="Scripts\Backend\selectFX\cs-skin-border.css" />
+    <Content Include="Scripts\Backend\selectFX\cs-skin-boxes.css" />
+    <Content Include="Scripts\Backend\selectFX\cs-skin-circular.css" />
+    <Content Include="Scripts\Backend\selectFX\cs-skin-elastic.css" />
+    <Content Include="Scripts\Backend\selectFX\cs-skin-overlay.css" />
+    <Content Include="Scripts\Backend\selectFX\cs-skin-rotate.css" />
+    <Content Include="Scripts\Backend\selectFX\cs-skin-slide.css" />
+    <Content Include="Scripts\Backend\selectFX\cs-skin-underline.css" />
+    <Content Include="Scripts\Backend\selectFX\demo.css" />
+    <Content Include="Scripts\Backend\selectFX\normalize.css" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Frontend\chosen.jquery.min.js" />
+    <Content Include="Scripts\Frontend\custom.js" />
+    <Content Include="Scripts\Frontend\hoverIntent.js" />
+    <Content Include="Scripts\Frontend\stacktable.js" />
+    <Content Include="Scripts\Frontend\waypoints.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\JQuery-validation\additional-methods.js" />
+    <Content Include="Scripts\JQuery-validation\additional-methods.min.js" />
+    <Content Include="Scripts\JQuery-validation\jquery.validate.js" />
+    <Content Include="Scripts\JQuery-validation\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\JQuery\jquery-2.1.3.min.js" />
+    <Content Include="Scripts\JQuery\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\JQuery\jquery.counterup.min.js" />
+    <Content Include="Scripts\JQuery\jquery.flexslider-min.js" />
+    <Content Include="Scripts\JQuery\jquery.gmaps.min.js" />
+    <Content Include="Scripts\JQuery\jquery.jpanelmenu.js" />
+    <Content Include="Scripts\JQuery\jquery.magnific-popup.min.js" />
+    <Content Include="Scripts\JQuery\jquery.sceditor.bbcode.min.js" />
+    <Content Include="Scripts\JQuery\jquery.sceditor.js" />
+    <Content Include="Scripts\JQuery\jquery.superfish.js" />
+    <Content Include="Scripts\JQuery\jquery.themepunch.revolution.min.js" />
+    <Content Include="Scripts\JQuery\jquery.themepunch.showbizpro.min.js" />
+    <Content Include="Scripts\JQuery\jquery.themepunch.tools.min.js" />
+    <Content Include="Scripts\jszip\jszip.js" />
+    <Content Include="Scripts\jszip\jszip.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\pdfmake\pdfmake.js" />
+    <Content Include="Scripts\pdfmake\pdfmake.min.js" />
+    <Content Include="Scripts\pdfmake\vfs_fonts.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_BackendLayout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\fontello.eot" />
+    <Content Include="Content\fonts\fontello.ttf" />
+    <Content Include="Content\fonts\fontello.woff" />
+    <Content Include="Content\fonts\themify.eot" />
+    <Content Include="Content\fonts\themify.ttf" />
+    <Content Include="Content\fonts\themify.woff" />
+    <Content Include="Content\images\Backend\.gitignore" />
+    <EntityDeploy Include="Models\DBConnection.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DBConnection.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DBConnection.edmx.diagram">
+      <DependentUpon>DBConnection.edmx</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
+    <Content Include="Scripts\pdfmake\pdfmake.js.map" />
+    <Content Include="Scripts\pdfmake\pdfmake.min.js.map" />
+    <Content Include="pagesBackend\BackendLayout.Master" />
+    <Content Include="pagesFrontend\FrontendLayout.Master" />
+    <Content Include="Views\Shared\_FrontEndLayout.cshtml" />
+    <Content Include="Views\FrontEnd\TrangChu.cshtml" />
+    <Content Include="Views\FrontEnd\DangNhap.cshtml" />
+    <Content Include="Views\FrontEnd\DangKy.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53504</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44339/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
