@@ -32,14 +32,22 @@ namespace DotNet_Website_Project.Models
         [Required(ErrorMessage ="Mật khẩu nhập lại không được bỏ trống")]
         [Compare(nameof(PASSWORD),ErrorMessage ="Mật khẩu nhập lại không giống mật khẩu trước đó")]
         public string PASSWORDAGAIN { get; set; }
+
+        [DisplayName("Trạng thái người dùng")]
         public Nullable<byte> USER_STATUS { get; set; }
 
         [DisplayName("Chức vụ")]
         [Required(ErrorMessage = "Chức vụ không được bỏ trống")]
         public Nullable<byte> ROLE_ID { get; set; }
+
+
+        [DisplayName("Ngày tham gia")]
         public string JOINED_DATE { get; set; }
+        [DisplayName("Facebook ID")]
         public string FACEBOOK_ID { get; set; }
+        [DisplayName("Gmail ID")]
         public string GMAIL_ID { get; set; }
+        [DisplayName("Reset Token")]
         public string RESET_TOKEN { get; set; }
     
         public virtual ROLE ROLE { get; set; }

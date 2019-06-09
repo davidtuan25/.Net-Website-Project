@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="BackendLayout.master.cs" Inherits="DotNet_Website_Project.pagesBackend.BackendLayout" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="BackendLayout.master.cs" Inherits="DotNet_Website_Project.BackendLayout" %>
 
 <!DOCTYPE html>
 
@@ -10,7 +10,7 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/backendCSS" />
+    <webopt:bundlereference runat="server" path="~/Content/BackendCSS" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
 <body>

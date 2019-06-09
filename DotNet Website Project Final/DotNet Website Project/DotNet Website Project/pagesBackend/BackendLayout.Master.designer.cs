@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DotNet_Website_Project.pagesBackend {
+namespace DotNet_Website_Project {
     
     
     public partial class BackendLayout {

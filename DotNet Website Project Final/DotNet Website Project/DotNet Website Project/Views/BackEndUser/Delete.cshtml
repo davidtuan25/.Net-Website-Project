@@ -1,0 +1,93 @@
+﻿@model DotNet_Website_Project.Models.USER
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_BackendLayout.cshtml";
+}
+
+    <h2 style="text-align:center">Xóa thành viên</h2>
+
+
+
+<div style="margin-left:50px; margin-top: 25px; margin-bottom: 25px;">
+    @Html.ActionLink("Trở về lại danh sách", "Index", null, new { @class = "btn btn-primary" })
+</div>
+
+<div style="margin-left:50px">
+<h3>Bạn chắc chắn muốn xóa?</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.USERNAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.USERNAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PASSWORD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PASSWORD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.USER_STATUS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.USER_STATUS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JOINED_DATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JOINED_DATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FACEBOOK_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FACEBOOK_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GMAIL_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GMAIL_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RESET_TOKEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RESET_TOKEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ROLE.ROLE_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ROLE.ROLE_NAME)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color" style="text-align:center">
+            <input type="submit" value="Xác nhận xóa" class="btn btn-danger" /> 
+        </div>
+    }
+</div>
