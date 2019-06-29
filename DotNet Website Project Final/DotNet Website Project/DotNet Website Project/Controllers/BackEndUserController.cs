@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
@@ -10,15 +9,17 @@ using System.Web;
 using System.Web.Mvc;
 using DotNet_Website_Project.Models;
 using PagedList;
-using PagedList.Mvc;
 
 namespace DotNet_Website_Project.Controllers
 {
+
+    [AuthorizationUser(RoleId = 1)]
     public class BackEndUserController : Controller
     {
         private PartTimeJobEntitiesEntities db = new PartTimeJobEntitiesEntities();
 
         // GET: BackEndUser
+
         public ActionResult Index(int? page)
         {
             var uSERs = db.USERs.Include(u => u.ROLE);
@@ -131,6 +132,7 @@ namespace DotNet_Website_Project.Controllers
             return View(uSER);
         }
 
+        [Authorize(Roles = "Administrator, PowerUser")]
         // POST: BackEndUser/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -150,5 +152,9 @@ namespace DotNet_Website_Project.Controllers
             }
             base.Dispose(disposing);
         }
+
+        //checking session to  ensure only admin ones can access to this page
+       
+     
     }
 }

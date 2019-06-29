@@ -13,6 +13,7 @@ namespace DotNet_Website_Project.Controllers
     using System.Web.Security;
     using System.Web.UI;
 
+    [AuthorizationUser]
     public class FrontEndController : Controller
     {
         // GET: FrontEnd
@@ -293,6 +294,7 @@ namespace DotNet_Website_Project.Controllers
               
             }
         }
+
         public ActionResult DangNhap()
         {
             ViewBag.PreviousPage = "Trang Chủ";
@@ -302,6 +304,7 @@ namespace DotNet_Website_Project.Controllers
         }
 
         [HttpPost]
+ 
         public ActionResult XacThucDangNhap(USER model)
         {
 
@@ -323,6 +326,12 @@ namespace DotNet_Website_Project.Controllers
                     {
                         Session["userID"] = getUser.USER_ID;
                         Session["userName"] = getUser.USERNAME;
+                        Session["userRole"] = getUser.ROLE_ID;
+
+                        if (getUser.USER_ID == 1)
+                        {
+                            return RedirectToAction("Index", "BackEndUser");
+                        }
                         ViewBag.Error = "Tài kho không đúng !";
 
                         return View("TrangChu");
