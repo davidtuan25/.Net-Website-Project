@@ -1,0 +1,83 @@
+﻿@model IEnumerable<DotNet_Website_Project.Models.JOB>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_BackendLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.JOB_CODE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JOB_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MINIMUM_WAGE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MAXIMUM_WAGE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JOB_REQUIREMENT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JOB_DESCRIPTION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JOB_CATEGORY.CATEGORY_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SHIFT_WORK_SCHEDULE.SHIFT_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TOWN.TOWN_NAME)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.JOB_CODE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JOB_NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MINIMUM_WAGE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MAXIMUM_WAGE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JOB_REQUIREMENT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JOB_DESCRIPTION)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JOB_CATEGORY.CATEGORY_NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SHIFT_WORK_SCHEDULE.SHIFT_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TOWN.TOWN_NAME)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.JOB_ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.JOB_ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.JOB_ID })
+            </td>
+        </tr>
+    }
+
+</table>
