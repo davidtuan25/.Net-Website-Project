@@ -8,7 +8,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>JOB</h4>
+    <h4>Chi tiết công việc</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -82,7 +82,13 @@
         <dd>
             @Html.DisplayFor(model => model.TOWN.TOWN_NAME)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TOWN.PROVINCE.PROVINCE_NAME)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.TOWN.PROVINCE.PROVINCE_NAME)
+        </dd>
     </dl>
 </div>
 <p>

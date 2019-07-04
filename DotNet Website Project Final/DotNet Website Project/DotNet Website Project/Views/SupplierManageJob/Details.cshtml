@@ -1,0 +1,132 @@
+﻿@model DotNet_Website_Project.Models.JOB_RECUMENT
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_FrontEndLayout.cshtml";
+}
+
+<!-- Titlebar
+================================================== -->
+<div id="titlebar" class="photo-bg" style="background: url(images/job-page-photo.jpg)">
+    <div class="container">
+        <div class="ten columns">
+       
+            <h2>@Html.DisplayFor(model => model.JOB.JOB_NAME) <span class="part-time">@Html.DisplayFor(model => model.JOB.JOB_CATEGORY.CATEGORY_NAME)</span></h2>
+            <h4 >Mã công việc : @Html.DisplayFor(model=> model.JOB.JOB_CODE)</h4>
+        </div>
+
+        <div class="six columns">
+            <a href="#" class="button white"><i class="fa fa-star"></i>Ghé thăm cửa hàng</a>
+        </div>
+
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- Recent Jobs -->
+    <div class="eleven columns">
+        <div class="padding-right">
+
+            <h4 class="margin-bottom-10">Người tuyển dụng : @Html.DisplayFor(model => model.PROFILE.FIRST_NAME) @Html.DisplayFor(model => model.PROFILE.LAST_NAME)</h4>
+            <h4 class="margin-bottom-10">Thời gian :</h4>
+
+            <ul class="list-1">
+                <li>Thứ 2 : @Html.DisplayFor(model => model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME.START_TIME) h - @Html.DisplayFor(model => model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME.END_TIME) h</li>
+                <li>Thứ 3 : @Html.DisplayFor(model => model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME1.START_TIME) h - @Html.DisplayFor(model => model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME1.END_TIME) h</li>
+                <li>Thứ 4 : @Html.DisplayFor(model => model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME2.START_TIME) h - @Html.DisplayFor(model => model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME2.END_TIME) h</li>
+                <li>Thứ 5 : @Html.DisplayFor(model => model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME3.START_TIME) h - @Html.DisplayFor(model => model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME3.END_TIME) h</li>
+                <li>Thứ 6 : @Html.DisplayFor(model => model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME4.START_TIME) h - @Html.DisplayFor(model => model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME4.END_TIME) h</li>
+                <li>Thứ 7 : @Html.DisplayFor(model => model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME5.START_TIME) h - @Html.DisplayFor(model => model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME5.END_TIME) h</li>
+                <li>Chủ nhật : @Html.DisplayFor(model => model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME6.START_TIME) h - @Html.DisplayFor(model => model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME6.END_TIME) h</li>
+            </ul>
+            <br>
+            <h4 class="margin-bottom-10">Lương</h4>
+            <ul class="list-1">
+                <li>$@Html.DisplayFor(model => model.JOB.MINIMUM_WAGE) - $@Html.DisplayFor(model => model.JOB.MAXIMUM_WAGE)</li>
+
+            </ul>
+            <h4 class="margin-bottom-10">Yêu cầu công việc</h4>
+            <ul class="list-1">
+                <li>@Html.DisplayFor(model => model.JOB.JOB_REQUIREMENT)</li>
+            </ul>
+            <h4 class="margin-bottom-10">Mô tả</h4>
+            <ul class="list-1">
+                <li>@Html.DisplayFor(model => model.JOB.JOB_DESCRIPTION)</li>
+            </ul>
+
+            <h4 class="margin-bottom-10">Ngày tạo tin </h4>
+            <ul class="list-1">
+                <li>@Html.DisplayFor(model => model.CREATED_DATE)</li>
+            </ul>
+            <h4 class="margin-bottom-10">Hạn đăng ký</h4>
+            <ul class="list-1">
+                <li>@Html.DisplayFor(model => model.APPROVAL_DEADLINE)</li>
+            </ul>
+            <h4 class="margin-bottom-10">Trạng thái</h4>
+            @{
+                switch (Model.RECUMENT_STATUS)
+                {
+                    case 0: <p style="color:red">Not accept</p> break;
+                    case 1:<p style="color:yellow">Pedding</p> break;
+                    case 2:<p style="color:green">accepted</p> break;
+                    case 3:<p style="color:blue">Showed</p> break;
+                    case 4:<p style="color:dimgray">Closed</p> break;
+                }
+            }
+            <h4 class="margin-bottom-10">Ngày bắt đầu làm việc</h4>
+            <ul class="list-1">
+                <li>@Html.DisplayFor(model => model.START_DATE)</li>
+            </ul>
+            <h4 class="margin-bottom-10">Số lượng</h4>
+            <ul class="list-1">
+                <li>@Html.DisplayFor(model => model.EMPLOYEE_AMOUNT)</li>
+            </ul>
+            <h4 class="margin-bottom-10">Danh sách nhân viên đăng ký</h4>
+            <table class="table">
+                <tr>
+                    <th>Tên</th>
+                    <th>Ngày đăng ký</th>
+                    <th>Approve</th>
+                    <th>Actions</th>
+                </tr>
+                @{ int number = 0;}
+                @foreach (var item in Model.JOB_RECUMENT_PROCESSING)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.PROFILE.LAST_NAME)</td>
+                        <td>@Html.DisplayFor(modelItem => item.APPLYING_DATE)</td>
+                        <td>
+                            @if (item.APPROVAL_STATUS == true)
+                            {
+                                <p style="color:forestgreen">Accept</p>
+                            }
+                            else
+                            {
+                                <p style="color:red">Declince</p>
+                            }
+                        </td>
+                        <td>
+                            <a asp-controller="SupplierManageJobController" asp-action="Accept" 
+                               asp-route-id="@item.RECUMENT_ID"
+                               asp-route-empId="@item.EMPLOYEE_ID">Accept</a>
+                            @Html.ActionLink("Accept", "Accept", "SupplierManageJobController",item, new { @class="btn btn-success"})
+                            @Html.ActionLink("Decline", "Decline", new { id = Model.RECUMENT_ID, empId = Model.EMPLOYER_ID, appStatus = false }, new{ @class="btn btn-danger"})
+                            
+                        </td>
+                        <p hidden>Số lượng đăng ký : @(++number)</p>
+                    </tr>
+
+                }
+            </table>
+            <h4>Số lượng đăng ký @number</h4>
+        </div>
+    </div>
+
+
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RECUMENT_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

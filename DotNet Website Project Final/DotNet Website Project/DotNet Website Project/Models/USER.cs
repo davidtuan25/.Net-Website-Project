@@ -29,8 +29,8 @@ namespace DotNet_Website_Project.Models
         public string PASSWORD { get; set; }
 
         [DisplayName("Nhập lại mật khẩu")]
-        [Required(ErrorMessage ="Mật khẩu nhập lại không được bỏ trống")]
-        [Compare(nameof(PASSWORD),ErrorMessage ="Mật khẩu nhập lại không giống mật khẩu trước đó")]
+        [Required(ErrorMessage = "Mật khẩu nhập lại không được bỏ trống")]
+        [Compare(nameof(PASSWORD), ErrorMessage = "Mật khẩu nhập lại không giống mật khẩu trước đó")]
         public string PASSWORDAGAIN { get; set; }
 
         [DisplayName("Trạng thái người dùng")]
@@ -49,7 +49,7 @@ namespace DotNet_Website_Project.Models
         public string GMAIL_ID { get; set; }
         [DisplayName("Reset Token")]
         public string RESET_TOKEN { get; set; }
-    
+
         public virtual ROLE ROLE { get; set; }
     }
 }

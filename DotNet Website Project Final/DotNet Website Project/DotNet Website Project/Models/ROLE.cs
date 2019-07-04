@@ -22,10 +22,10 @@ namespace DotNet_Website_Project.Models
         }
         [DisplayName("Tên chức vụ")]
         public byte ROLE_ID { get; set; }
-
+        
         [DisplayName("Tên vai trò")]
         public string ROLE_NAME { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<USER> USERs { get; set; }
     }

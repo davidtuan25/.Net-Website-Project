@@ -6,6 +6,7 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using System.ComponentModel.DataAnnotations;
 
 namespace DotNet_Website_Project.Models
 {
@@ -25,8 +26,10 @@ namespace DotNet_Website_Project.Models
     
         public int RECUMENT_ID { get; set; }
         public int EMPLOYER_ID { get; set; }
+
         public Nullable<int> EMPLOYEE_AMOUNT { get; set; }
         public Nullable<int> JOB_ID { get; set; }
+
         public string START_DATE { get; set; }
         public Nullable<int> WORK_MONTH_AMOUNT { get; set; }
         public string CREATED_DATE { get; set; }

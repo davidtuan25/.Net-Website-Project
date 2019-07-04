@@ -41,6 +41,7 @@ namespace DotNet_Website_Project.Controllers
         {
             ViewBag.CATEGORY_ID = new SelectList(db.JOB_CATEGORY, "CATEGORY_ID", "CATEGORY_NAME");
             ViewBag.SHIFT_WORK = new SelectList(db.SHIFT_WORK_SCHEDULE, "SHIFT_ID", "SHIFT_ID");
+            ViewBag.PROVINCE_ID = new SelectList(db.PROVINCEs, "PROVINCE_ID", "PROVINCE_NAME");
             ViewBag.TOWN_ID = new SelectList(db.TOWNs, "TOWN_ID", "TOWN_NAME");
             return View();
         }
@@ -50,7 +51,7 @@ namespace DotNet_Website_Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "JOB_ID,CATEGORY_ID,JOB_CODE,JOB_NAME,MINIMUM_WAGE,MAXIMUM_WAGE,TOWN_ID,JOB_REQUIREMENT,JOB_DESCRIPTION,SHIFT_WORK")] JOB jOB)
+        public ActionResult Create([Bind(Include = "CATEGORY_ID,JOB_CODE,JOB_NAME,MINIMUM_WAGE,MAXIMUM_WAGE,TOWN_ID,JOB_REQUIREMENT,JOB_DESCRIPTION,SHIFT_WORK")] JOB jOB)
         {
             if (ModelState.IsValid)
             {
@@ -61,6 +62,7 @@ namespace DotNet_Website_Project.Controllers
 
             ViewBag.CATEGORY_ID = new SelectList(db.JOB_CATEGORY, "CATEGORY_ID", "CATEGORY_NAME", jOB.CATEGORY_ID);
             ViewBag.SHIFT_WORK = new SelectList(db.SHIFT_WORK_SCHEDULE, "SHIFT_ID", "SHIFT_ID", jOB.SHIFT_WORK);
+            ViewBag.PROVINCE_ID = new SelectList(db.PROVINCEs, "PROVINCE_ID", "PROVINCE_NAME", jOB.TOWN.PROVINCE_ID);
             ViewBag.TOWN_ID = new SelectList(db.TOWNs, "TOWN_ID", "TOWN_NAME", jOB.TOWN_ID);
             return View(jOB);
         }
@@ -79,6 +81,7 @@ namespace DotNet_Website_Project.Controllers
             }
             ViewBag.CATEGORY_ID = new SelectList(db.JOB_CATEGORY, "CATEGORY_ID", "CATEGORY_NAME", jOB.CATEGORY_ID);
             ViewBag.SHIFT_WORK = new SelectList(db.SHIFT_WORK_SCHEDULE, "SHIFT_ID", "SHIFT_ID", jOB.SHIFT_WORK);
+            ViewBag.PROVINCE_ID = new SelectList(db.PROVINCEs, "PROVINCE_ID", "PROVINCE_NAME", jOB.TOWN.PROVINCE_ID);
             ViewBag.TOWN_ID = new SelectList(db.TOWNs, "TOWN_ID", "TOWN_NAME", jOB.TOWN_ID);
             return View(jOB);
         }
@@ -98,6 +101,7 @@ namespace DotNet_Website_Project.Controllers
             }
             ViewBag.CATEGORY_ID = new SelectList(db.JOB_CATEGORY, "CATEGORY_ID", "CATEGORY_NAME", jOB.CATEGORY_ID);
             ViewBag.SHIFT_WORK = new SelectList(db.SHIFT_WORK_SCHEDULE, "SHIFT_ID", "SHIFT_ID", jOB.SHIFT_WORK);
+            ViewBag.PROVINCE_ID = new SelectList(db.PROVINCEs, "PROVINCE_ID", "PROVINCE_NAME", jOB.TOWN.PROVINCE_ID);
             ViewBag.TOWN_ID = new SelectList(db.TOWNs, "TOWN_ID", "TOWN_NAME", jOB.TOWN_ID);
             return View(jOB);
         }
@@ -110,6 +114,7 @@ namespace DotNet_Website_Project.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             JOB jOB = db.JOBs.Find(id);
+            ViewBag.CATEGORY_ID = new SelectList(db.JOB_CATEGORY, "CATEGORY_ID", "CATEGORY_NAME", jOB.CATEGORY_ID);
             if (jOB == null)
             {
                 return HttpNotFound();

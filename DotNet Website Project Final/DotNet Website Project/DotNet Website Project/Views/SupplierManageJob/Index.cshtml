@@ -1,0 +1,92 @@
+﻿@model IEnumerable<DotNet_Website_Project.Models.JOB_RECUMENT>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_FrontEndLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>STT</th>
+        <th>
+            @Html.DisplayNameFor(model => model.JOB.JOB_CODE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JOB.JOB_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMPLOYEE_AMOUNT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.START_DATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CREATED_DATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.APPROVAL_DEADLINE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RECUMENT_STATUS)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.PROFILE.LAST_NAME)
+        </th>
+        <th>Actions</th>
+    </tr>
+    @{ int i = 1;}
+@foreach (var item in Model) {
+    <tr>
+        <td>@(i++)</td>
+        <td>
+
+            @Html.DisplayFor(modelItem => item.JOB.JOB_CODE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JOB.JOB_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMPLOYEE_AMOUNT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.START_DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CREATED_DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.APPROVAL_DEADLINE)
+        </td>>
+        <td>
+            @{
+                switch (item.RECUMENT_STATUS)
+                {
+                    case 0: <p style="color:red">Not accept</p> break;
+                    case 1:<p style="color:yellow">Pedding</p> break;
+                    case 2:<p style="color:green">accepted</p> break;
+                    case 3:<p style="color:blue">Showed</p> break;
+                    case 4:<p style="color:dimgray">Closed</p> break;
+                }
+            }
+
+        </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PROFILE.FIRST_NAME)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.RECUMENT_ID }, new { @class="btn btn-success"}) 
+                @Html.ActionLink("Edit", "Edit", new { id = item.RECUMENT_ID }, new { @class = "btn btn-primary" }) 
+                @Html.ActionLink("Delete", "Delete", new { id = item.RECUMENT_ID }, new { @class = "btn btn-danger" })
+            </td>
+
+
+        </tr>
+}
+
+</table>

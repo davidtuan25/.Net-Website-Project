@@ -5,8 +5,8 @@
       <PropertyRef Name="BONUS_TIME_ID" />
     </Key>
     <Property Name="BONUS_TIME_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="START_TIME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="END_TIME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="START_TIME" Type="Byte" Nullable="false" />
+    <Property Name="END_TIME" Type="Byte" Nullable="false" />
   </EntityType>
   <EntityType Name="FEED_BACKLIST">
     <Key>
@@ -131,7 +131,7 @@
       <PropertyRef Name="PROVINCE_ID" />
     </Key>
     <Property Name="PROVINCE_ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="PROVINCE_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PROVINCE_NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="TOWNs" Relationship="Self.FK_PV" FromRole="PROVINCE" ToRole="TOWN" />
   </EntityType>
   <EntityType Name="REFERRAL_WAGE_BILL">
@@ -181,7 +181,7 @@
     </Key>
     <Property Name="TOWN_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="PROVINCE_ID" Type="Byte" Nullable="false" />
-    <Property Name="TOWN_NAME" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="TOWN_NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="JOBs" Relationship="Self.FK_TOWN2" FromRole="TOWN" ToRole="JOB" />
     <NavigationProperty Name="PROFILEs" Relationship="Self.FK_TOWN" FromRole="TOWN" ToRole="PROFILE" />
     <NavigationProperty Name="PROVINCE" Relationship="Self.FK_PV" FromRole="TOWN" ToRole="PROVINCE" />
@@ -190,7 +190,7 @@
     <Key>
       <PropertyRef Name="TYPEPAYCARD_ID" />
     </Key>
-    <Property Name="TYPEPAYCARD_ID" Type="Byte" Nullable="false" />
+    <Property Name="TYPEPAYCARD_ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="PAYCARD_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="USERPAYCARDS" Relationship="Self.FK_TYPEPAYCARD" FromRole="TYPEPAYCARD" ToRole="USERPAYCARDS" />
   </EntityType>
@@ -206,8 +206,8 @@
     <Property Name="JOINED_DATE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="FACEBOOK_ID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="GMAIL_ID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="ROLE" Relationship="Self.FK_ROLE" FromRole="USER" ToRole="ROLE" />
     <Property Name="RESET_TOKEN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ROLE" Relationship="Self.FK_ROLE" FromRole="USER" ToRole="ROLE" />
   </EntityType>
   <EntityType Name="USERPAYCARD">
     <Key>
@@ -228,8 +228,8 @@
       <PropertyRef Name="WORK_TIME_ID" />
     </Key>
     <Property Name="WORK_TIME_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="START_TIME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="END_TIME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="START_TIME" Type="Byte" Nullable="false" />
+    <Property Name="END_TIME" Type="Byte" Nullable="false" />
     <Property Name="FIRST_BONUSTIME_ID" Type="Int32" />
     <Property Name="SECOND_BONUSTIME_ID" Type="Int32" />
     <NavigationProperty Name="SHIFT_WORK_SCHEDULE" Relationship="Self.FK_F" FromRole="WORK_TIME" ToRole="SHIFT_WORK_SCHEDULE" />
@@ -576,7 +576,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="PartTimeJobEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="BONUS_TIME" EntityType="Self.BONUS_TIME" />
     <EntitySet Name="FEED_BACKLIST" EntityType="Self.FEED_BACKLIST" />
     <EntitySet Name="JOBs" EntityType="Self.JOB" />

@@ -5,8 +5,8 @@
       <PropertyRef Name="BONUS_TIME_ID" />
     </Key>
     <Property Name="BONUS_TIME_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="START_TIME" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="END_TIME" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="START_TIME" Type="tinyint" Nullable="false" />
+    <Property Name="END_TIME" Type="tinyint" Nullable="false" />
   </EntityType>
   <EntityType Name="FEED_BACKLIST">
     <Key>
@@ -103,7 +103,7 @@
       <PropertyRef Name="PROVINCE_ID" />
     </Key>
     <Property Name="PROVINCE_ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="PROVINCE_NAME" Type="nvarchar" MaxLength="20" />
+    <Property Name="PROVINCE_NAME" Type="nvarchar" MaxLength="25" />
   </EntityType>
   <EntityType Name="REFERRAL_WAGE_BILL">
     <Key>
@@ -141,13 +141,13 @@
     </Key>
     <Property Name="TOWN_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PROVINCE_ID" Type="tinyint" Nullable="false" />
-    <Property Name="TOWN_NAME" Type="nvarchar" MaxLength="10" />
+    <Property Name="TOWN_NAME" Type="nvarchar" MaxLength="25" />
   </EntityType>
   <EntityType Name="TYPEPAYCARD">
     <Key>
       <PropertyRef Name="TYPEPAYCARD_ID" />
     </Key>
-    <Property Name="TYPEPAYCARD_ID" Type="tinyint" Nullable="false" />
+    <Property Name="TYPEPAYCARD_ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PAYCARD_NAME" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="USER">
@@ -179,8 +179,8 @@
       <PropertyRef Name="WORK_TIME_ID" />
     </Key>
     <Property Name="WORK_TIME_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="START_TIME" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="END_TIME" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="START_TIME" Type="tinyint" Nullable="false" />
+    <Property Name="END_TIME" Type="tinyint" Nullable="false" />
     <Property Name="FIRST_BONUSTIME_ID" Type="int" />
     <Property Name="SECOND_BONUSTIME_ID" Type="int" />
   </EntityType>

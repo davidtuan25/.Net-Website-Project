@@ -27,8 +27,8 @@ namespace DotNet_Website_Project.Models
         }
     
         public int WORK_TIME_ID { get; set; }
-        public string START_TIME { get; set; }
-        public string END_TIME { get; set; }
+        public byte START_TIME { get; set; }
+        public byte END_TIME { get; set; }
         public Nullable<int> FIRST_BONUSTIME_ID { get; set; }
         public Nullable<int> SECOND_BONUSTIME_ID { get; set; }
     

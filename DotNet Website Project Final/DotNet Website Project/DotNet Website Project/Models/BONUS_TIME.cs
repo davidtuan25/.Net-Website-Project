@@ -15,7 +15,7 @@ namespace DotNet_Website_Project.Models
     public partial class BONUS_TIME
     {
         public int BONUS_TIME_ID { get; set; }
-        public string START_TIME { get; set; }
-        public string END_TIME { get; set; }
+        public byte START_TIME { get; set; }
+        public byte END_TIME { get; set; }
     }
 }

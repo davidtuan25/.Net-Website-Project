@@ -21,6 +21,14 @@ namespace DotNet_Website_Project.Controllers
         {
             return View();
         }
+        public ActionResult TrangChu2()
+        {
+            return View();
+        }
+        public ActionResult TrangChu3()//vi  du tao them nha , neulam auto thi vay
+        {
+            return View();
+        }
         public ActionResult DangKy()
         {
             ViewBag.PreviousPage = "Trang Chủ";
@@ -195,7 +203,7 @@ namespace DotNet_Website_Project.Controllers
             }
 
         }
-
+        //de em check ben em xai gi
         public PROFILE layProfileTuUserID(int userID)
         {
             using (var DBEntities = new PartTimeJobEntitiesEntities())
