@@ -1,0 +1,107 @@
+﻿@model DotNet_Website_Project.Models.PROFILE
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_BackendLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PROFILE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FIRST_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FIRST_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LAST_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LAST_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDENTITY_CARD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDENTITY_CARD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BIRTHDAY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BIRTHDAY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SEX)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SEX)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PHONE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PHONE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ADDRESS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ADDRESS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AVATAR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AVATAR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DESCRIPTION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESCRIPTION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TOWN.TOWN_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TOWN.TOWN_NAME)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PROFILE_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

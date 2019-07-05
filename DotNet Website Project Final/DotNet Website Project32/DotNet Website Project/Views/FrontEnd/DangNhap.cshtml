@@ -1,0 +1,77 @@
+﻿@model DotNet_Website_Project.Models.USER
+
+@{
+    ViewBag.Title = "Trang Đăng Nhập";
+    Layout = "~/Views/Shared/_FrontEndLayout.cshtml";
+}
+
+<div id="titlebar" class="single" style="margin-top:3%">
+    <div class="container">
+        <div class="sixteen columns">
+            <h2>@ViewBag.Title</h2>
+            <nav id="breadcrumbs">
+                <ul>
+                    <li>Bạn đang ở :</li>
+                    <li>@Html.ActionLink((String)@ViewBag.PreviousPage, (String)@ViewBag.PreviousAction, (String)ViewBag.PreviousController)</li>
+                    <li>@ViewBag.Title</li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="my-account">
+        <div class="tabs-container">
+            <!-- Login -->
+            <div class="tab-content" id="tab1" style="display: none;">
+
+                <h3 style="text-align: center;" class="margin-bottom-10 margin-top-10">Đăng nhập</h3>
+                @using (Html.BeginForm("XacThucDangNhap", "FrontEnd", FormMethod.Post))
+                {
+                    <p class="form-row form-row-wide">
+                        @Html.LabelFor(model => model.USERNAME)
+                        @Html.EditorFor(model => model.USERNAME)
+                        @Html.ValidationMessageFor(model => model.USERNAME, null, new { @class = "text-danger" })
+                    </p>
+
+                    <p class="form-row form-row-wide">
+                        @Html.LabelFor(model => model.PASSWORD)
+                        @Html.EditorFor(model => model.PASSWORD)
+                        @Html.ValidationMessageFor(model => model.PASSWORD, null, new { @class = "text-danger" })
+
+                    </p>
+                    <p class="form-row form-row-wide">
+                        <span class="text-danger">
+                            @ViewBag.Error
+                        </span>
+                    </p>
+                    <p style="width: 29%;margin : 0 auto" class="form-row">
+                        <input type="submit" class="button" value="Đăng Nhập" />
+
+                    </p>
+                }
+                <p style="width: 29%;margin : 0 auto" class="lost_password">
+                    <a href="#"> Quên mật khẩu ?</a>
+                </p>
+
+
+
+                <label style="width: 45%;font-size:12pt;margin : 0 auto">Đăng nhập với tài khoản</label>
+                <label style="width: 45%;font-size:12pt;margin : 0 auto">(F2,G2 : Nhà tuyển dụng)</label>
+                <label style="width: 45%;font-size:12pt;margin : 0 auto">(F3,G3 : Người tìm việc)</label>
+                <div style="width : 25%;margin: 0 auto;">
+                    <ul class="social-icons">
+                        <li><a class="facebook" href="https://www.facebook.com/dialog/oauth?client_id=448189112424038&redirect_uri=https://localhost:44339/FrontEnd/DangNhapFacebook?roleID=2"><i class="icon-facebook">2</i></a></li>
+                        <li><a class="facebook" href="https://www.facebook.com/dialog/oauth?client_id=448189112424038&redirect_uri=https://localhost:44339/FrontEnd/DangNhapFacebook?roleID=3"><i class="icon-facebook">3   </i></a></li>
+                        <li><a class="gplus" href="#"><i class="icon-gplus">2</i></a></li>
+                        <li><a class="gplus" href="#"><i class="icon-gplus">3</i></a></li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="margin-top-30"></div>

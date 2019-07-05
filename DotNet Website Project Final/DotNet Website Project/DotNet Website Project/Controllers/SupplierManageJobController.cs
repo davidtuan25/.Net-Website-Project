@@ -17,7 +17,7 @@ namespace DotNet_Website_Project.Controllers
         // GET: SupplierManageJob
         public ActionResult Index()
         {
-            int number = Int32.Parse(Session["userID"].ToString());
+            int number = Convert.ToInt32(Session["userID"].ToString());
             var jOB_RECUMENT = db.JOB_RECUMENT.Include(j => j.JOB).Include(j => j.PROFILE).Where(j=> j.EMPLOYER_ID == number);
             return View(jOB_RECUMENT.ToList());
         }

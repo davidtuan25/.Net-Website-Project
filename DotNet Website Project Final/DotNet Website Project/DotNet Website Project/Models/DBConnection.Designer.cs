@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\GitHub\.Net-Website-Project\DotNet Website Project Final\DotNet Website Project\DotNet Website Project\Models\DBConnection.edmx'. 
+﻿// T4 code generation is enabled for model 'F:\Working Space\VisualStudio\DotNet Website Project\DotNet Website Project\Models\DBConnection.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

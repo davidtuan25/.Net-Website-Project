@@ -69,19 +69,17 @@
                                 <i class="menu-icon fa fa-sign-in"></i> @Html.ActionLink("Quản Lý Tài Khoản", "Index", "BackEndUser")
                             </li>
                             <li>
-                                <i class="menu-icon fa fa-sign-in"></i> @Html.ActionLink("Quản Lý Profile", "Index", "PROFILE")
+                                <i class="menu-icon fa fa-sign-in"></i> @Html.ActionLink("Quản Lý Hồ Sơ", "Index", "PROFILE")
                             </li>
+                         
                             <li>
-                                <i class="menu-icon fa fa-sign-in"></i>  @Html.ActionLink("Quản Lý Hồ Sơ", "HoSo", "QuanLy")
-                            </li>
-                            <li>
-                                <i class="menu-icon fa fa-sign-in"></i> @Html.ActionLink("Quản Lý Công Việc", "CongViec", "QuanLy")
+                                <i class="menu-icon fa fa-sign-in"></i> @Html.ActionLink("Quản Lý Công Việc", "Index", "ManageJob")
                             </li>
                         </ul>
 
                     </li>
-                    </ul>
-</div><!-- /.navbar-collapse -->
+                </ul>
+            </div><!-- /.navbar-collapse -->
         </nav>
     </aside><!-- /#left-panel -->
     <!-- Left Panel -->
@@ -137,9 +135,13 @@
                         </a>
 
                         <div class="user-menu dropdown-menu">
+                            <a class="nav-link" href="#"><i class="fa fa-user"></i> My Profile</a>
 
+                            <a class="nav-link" href="#"><i class="fa fa-user"></i> Notifications <span class="count">13</span></a>
 
-                            @Html.ActionLink("Đăng xuất", "LogOut", "BackEndUser") <i class="fa fa-power-off"></i>
+                            <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
+
+                            <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a>
                         </div>
                     </div>
 

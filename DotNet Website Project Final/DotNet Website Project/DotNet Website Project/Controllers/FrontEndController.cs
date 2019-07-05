@@ -19,14 +19,16 @@ namespace DotNet_Website_Project.Controllers
         // GET: FrontEnd
         public ActionResult TrangChu()
         {
-            return View();
-        }
-        public ActionResult TrangChu2()
-        {
-            return View();
-        }
-        public ActionResult TrangChu3()//vi  du tao them nha , neulam auto thi vay
-        {
+            using (var DBEntities = new PartTimeJobEntitiesEntities())
+            {
+                Dictionary<int, string> stringCategory = new Dictionary<int, string>();
+                List<JOB_CATEGORY> jobCategory = (from category in DBEntities.JOB_CATEGORY select category).ToList();
+                foreach(JOB_CATEGORY category in jobCategory)
+                {
+                    stringCategory.Add(category.CATEGORY_ID, category.CATEGORY_NAME);
+                }
+                ViewBag.stringCategory = stringCategory;
+            }
             return View();
         }
         public ActionResult DangKy()
@@ -96,7 +98,7 @@ namespace DotNet_Website_Project.Controllers
                                         newUser.GMAIL_ID = Convert.ToString(generateID + 1);
                                         newUser.USER_STATUS = (byte) 1;
                                         DateTime dateTime = DateTime.UtcNow.Date;
-                                        newUser.JOINED_DATE = dateTime.ToString("MM/dd/yyyy");
+                                        newUser.JOINED_DATE = dateTime.ToString("dd/MM/yyyy");
                                         DBEntities.USERs.Add(newUser);
     
                                         // tao xong user , tien hanh tao profile
@@ -163,11 +165,14 @@ namespace DotNet_Website_Project.Controllers
                 // lay thong tin tai khoan FB
                 Dictionary<string, string> fbInfo = new Dictionary<string, string>();
                 dynamic me = fb.Get("me?fields=id,name,age_range,birthday,first_name,last_name,hometown,gender,location,email");
+                string birthdayString = Convert.ToString(me.birthday);
+                var birthdaySplit = birthdayString.Split('/');
+                string birthday = birthdaySplit[1]+"/" + birthdaySplit[0] + "/" + birthdaySplit[2];
                 fbInfo.Add("fbID",me.id);
                 fbInfo.Add("fbEmail",me.email);
                 fbInfo.Add("fbName",me.name);
                 fbInfo.Add("fbAge",Convert.ToString(me.age_range["min"]));
-                fbInfo.Add("fbBirthday",Convert.ToString(me.birthday));
+                fbInfo.Add("fbBirthday", birthday);
                 fbInfo.Add("fbFirstName",me.first_name);
                 fbInfo.Add("fbLastName", me.last_name);
                 fbInfo.Add("fbHometown", me.hometown);
@@ -199,11 +204,13 @@ namespace DotNet_Website_Project.Controllers
                 }
                 Session["userID"] = getUserID;
                 Session["userName"] = layProfileTuUserID(getUserID).LAST_NAME;
+                Session["userRole"] = layUserTuUserID(getUserID).ROLE_ID;
+
                 return RedirectToAction("TrangChu", "FrontEnd");
             }
 
         }
-        //de em check ben em xai gi
+
         public PROFILE layProfileTuUserID(int userID)
         {
             using (var DBEntities = new PartTimeJobEntitiesEntities())
@@ -272,7 +279,7 @@ namespace DotNet_Website_Project.Controllers
                         newUser.PASSWORD = facebookID + "2019group21dotnetNLUHashing";
                         newUser.PASSWORDAGAIN = facebookID + "2019group21dotnetNLUHashing";
                         DateTime dateTime = DateTime.UtcNow.Date;
-                        newUser.JOINED_DATE = dateTime.ToString("MM/dd/yyyy");
+                        newUser.JOINED_DATE = dateTime.ToString("dd/MM/yyyy");
                         newUser.GMAIL_ID = Convert.ToString(generateID + 1);
                         newUser.USER_STATUS = (byte)1;
                         newUser.ROLE_ID = byte.Parse(fbInfo["roleID"]);
@@ -335,14 +342,7 @@ namespace DotNet_Website_Project.Controllers
                         Session["userID"] = getUser.USER_ID;
                         Session["userName"] = getUser.USERNAME;
                         Session["userRole"] = getUser.ROLE_ID;
-
-                        if (getUser.ROLE_ID == 1)
-                        {
-                            return RedirectToAction("Index", "BackEndUser");
-                        }
-                        ViewBag.Error = "Tài kho không đúng !";
-
-                        return View("TrangChu");
+                        return RedirectToAction("TrangChu","FrontEnd");
                     }
                     else
                     {
@@ -361,6 +361,7 @@ namespace DotNet_Website_Project.Controllers
         public ActionResult DangXuat()
         {
             Session.Abandon();
+            HttpContext.Session.Abandon();
             return RedirectToAction("TrangChu", "FrontEnd");
         }
     }

@@ -1,0 +1,193 @@
+﻿@model DotNet_Website_Project.Models.JOB_RECUMENT
+
+@{
+    ViewBag.Title = "JobRecumentDetail";
+    Layout = "~/Views/Shared/_FrontEndLayout.cshtml";
+}
+
+<!-- Titlebar
+================================================== -->
+<div id="titlebar" class="photo-bg" style="background-color:#4cff00;">
+    <div class="container">
+        <div class="ten columns">
+            <span><a href="XXX">@Model.JOB.JOB_CATEGORY.CATEGORY_NAME</a></span>
+            <h2>
+                Nhà tuyển dụng : @Model.PROFILE.FIRST_NAME @Model.PROFILE.LAST_NAME cần @Model.EMPLOYEE_AMOUNT vị trí @Model.JOB.JOB_NAME
+                <span class="part-time">Freelancer</span>
+               
+            </h2>
+        </div>
+
+        <div class="six columns">
+            <a href="#" class="button white"><i class="fa fa-star"></i>Xem thông tin tuyển trạch viên</a>
+        </div>
+
+    </div>
+</div>
+<!-- Content
+================================================== -->
+<div class="container">
+
+    <!-- Recent Jobs -->
+    <div class="eleven columns">
+        <div class="padding-right">
+
+            <!-- Company Info -->
+            <div class="company-info">
+                <img src="~/Content/images/Frontend/start-up.jpg" alt="">
+                <div class="content">
+                    <h3>@Model.JOB.JOB_NAME</h3>
+                    <span><a href="#"><i class="fa fa-link"></i> @Model.JOB.JOB_CATEGORY.CATEGORY_NAME</a></span>
+                    <span><a href="#"><i class="fa fa-money"></i> $@Model.JOB.MINIMUM_WAGE</a></span>
+                </div>
+            </div>
+            <br>
+            <br>
+            <h4 class="margin-bottom-10">Yêu cầu công việc :</h4>
+            <ul class="list-1">
+                <li>@Model.JOB.JOB_REQUIREMENT</li>
+            </ul>
+            <h4 class="margin-bottom-10">Mô tả chi tiết công việc :</h4>
+            <ul class="list-1">
+                <li>@Model.JOB.JOB_DESCRIPTION</li>
+            </ul>
+            <h4 class="margin-bottom-10">Bảng thời gian làm việc chi tiết :</h4>
+        
+            <ul class="list-1">
+                @{
+                    if (@Model.JOB.SHIFT_WORK_SCHEDULE.MON_WORK_TIME.Value != null)
+                    {
+                        <li>Thứ 2 :  @Model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME1.START_TIME giờ - @Model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME1.END_TIME giờ </li>
+                    }
+                    if (@Model.JOB.SHIFT_WORK_SCHEDULE.TUES_WORK_TIME.Value != null)
+                    {
+            <li>Thứ 3 :  @Model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME4.START_TIME giờ - @Model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME4.END_TIME giờ </li>
+                            }
+                    if (@Model.JOB.SHIFT_WORK_SCHEDULE.WED_WORK_TIME.Value != null)
+                    {
+                        <li>Thứ 4 :  @Model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME6.START_TIME giờ - @Model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME6.END_TIME giờ </li>
+                    }
+                    if (@Model.JOB.SHIFT_WORK_SCHEDULE.THURS_WORK_TIME.Value != null)
+                    {
+            <li>Thứ 5 :  @Model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME5.START_TIME giờ - @Model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME5.END_TIME giờ </li>
+                    }
+                    if (@Model.JOB.SHIFT_WORK_SCHEDULE.FRI_WORK_TIME.Value != null)
+                    {
+            <li>Thứ 6 :  @Model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME.START_TIME giờ - @Model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME.END_TIME giờ </li>
+                    }
+                    if (@Model.JOB.SHIFT_WORK_SCHEDULE.SAT_WORK_TIME.Value != null)
+                    {
+                        <li>Thứ 7 :  @Model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME1.START_TIME giờ - @Model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME1.END_TIME giờ </li>
+                    }
+          
+                }
+
+
+                @*<li>Thứ 2 :  @Model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME.START_TIME giờ </li>thu6
+        <li>Thứ 2 :  @Model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME1.START_TIME giờ </li> thu2
+        <li>Thứ 2 :  @Model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME2.START_TIME giờ </li> thu7
+        <li>Thứ 2 :  @Model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME3.START_TIME giờ </li> cn
+        <li>Thứ 2 :  @Model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME4.START_TIME giờ </li>thu3
+        <li>Thứ 2 :  @Model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME5.START_TIME giờ </li>thu5
+        <li>Thứ 2 :  @Model.JOB.SHIFT_WORK_SCHEDULE.WORK_TIME6.START_TIME giờ </li> thu4*@
+
+
+
+
+                <li>Lương $@Model.JOB.MINIMUM_WAGE / tháng , có thể tăng lên $@Model.JOB.MAXIMUM_WAGE / tháng nếu làm tốt .</li>
+            </ul>
+            <br>
+        </div>
+    </div>
+
+
+    <!-- Widgets -->
+    <div class="five columns">
+
+        <!-- Sort by -->
+        <div class="widget">
+            <h4>Ứng tuyển công việc</h4>
+
+            <div class="job-overview">
+
+                <ul>
+                    <li>
+                        <i class="fa fa-map-marker"></i>
+                        <div>
+                            <strong>Địa điểm:</strong>
+                            <span> @Model.JOB.TOWN.PROVINCE.PROVINCE_NAME @Model.JOB.TOWN.TOWN_NAME</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fa fa-user"></i>
+                        <div>
+                            <strong>Số lượng :</strong>
+                            <span>Tuyển @Model.EMPLOYEE_AMOUNT vị trí</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fa fa-clock-o"></i>
+                        <div>
+                            <strong>Hạn chót nộp hồ sơ :</strong>
+                            <span> @Model.APPROVAL_DEADLINE     </span>
+                        </div>
+                    </li>
+                </ul>
+
+                @{
+                    if (Session["userID"] == null)
+                    {
+                        <a href="~/FrontEnd/DangNhap" class="button">Đăng nhập để ứng tuyển</a>
+                    }
+                    else
+                    {
+                        if (ViewBag.ApprovalStatus == false)
+                        {
+                            <a href="" class="popup-with-zoom-anim button">Đã ứng tuyển, chưa duyệt</a>
+
+                        }
+                        else if (ViewBag.ApprovalStatus == true)
+                        {
+                            <a href="" class="popup-with-zoom-anim button">Đã ứng tuyển, đã duyệt</a>
+                        }
+                        else
+                        {
+                            <a href="#small-dialog" class="popup-with-zoom-anim button">Ứng tuyển</a>
+                        }
+                    }
+
+                }
+
+                <div id="small-dialog" class="zoom-anim-dialog mfp-hide apply-popup">
+                    <div class="small-dialog-headline">
+                        <h2>Ứng tuyển @Model.JOB.JOB_NAME</h2>
+                    </div>
+
+                    <div class="small-dialog-content">
+                        @using (Html.BeginForm("ApplyJob", "Applier", FormMethod.Post))
+                        {
+                            <p>Bạn có chắc chắn chứ ?</p>
+                            <input type="hidden" name="userID" readonly="true" value="@Session["userID"]" />
+                            <input type="hidden" name="recumentID"readonly="true" value="@Model.RECUMENT_ID" />
+
+                            <!-- Upload CV -->
+                            <div class="clearfix"></div>
+
+                            <div class="divider"></div>
+
+                            <input type="submit" value="Xác nhận"class="send">
+                        }
+                        </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- Widgets / End -->
+
+
+</div>
+

@@ -1,0 +1,108 @@
+﻿@model DotNet_Website_Project.Models.JOB
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_BackendLayout.cshtml";
+}
+
+<h2>Xóa Job</h2>
+
+<h3 style="color:red">Bạn đồng ý xóa Job này ?</h3>
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.JOB_CATEGORY.CATEGORY_NAME)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.JOB_CATEGORY.CATEGORY_NAME)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.JOB_CODE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JOB_CODE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JOB_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JOB_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MINIMUM_WAGE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MINIMUM_WAGE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MAXIMUM_WAGE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAXIMUM_WAGE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JOB_REQUIREMENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JOB_REQUIREMENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JOB_DESCRIPTION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JOB_DESCRIPTION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JOB_CATEGORY.CATEGORY_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JOB_CATEGORY.CATEGORY_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SHIFT_WORK_SCHEDULE.SHIFT_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SHIFT_WORK_SCHEDULE.SHIFT_ID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TOWN.PROVINCE.PROVINCE_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TOWN.PROVINCE.PROVINCE_NAME)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TOWN.TOWN_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TOWN.TOWN_NAME)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Quay lại", "Index")
+        </div>
+    }
+</div>

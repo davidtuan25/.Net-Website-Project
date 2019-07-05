@@ -101,68 +101,24 @@ input.ico-02 { background: #fff url("/Content/images/Frontend/ico-02.png") no-re
     <!-- Categories Group -->
     <div class="categories-group">
         <div class="container">
-            <div class="four columns"><h4>Việc làm part-time</h4></div>
-            <div class="four columns">
-                <ul>
-                    <li><a href="#">Quán Cafe</a></li>
-                    <li><a href="#">Nhà hàng</a></li>
-                    <li><a href="#">Quán ăn</a></li>
-                    <li><a href="#">Tiệm trà sữa</a></li>
-                </ul>
-            </div>
-            <div class="four columns">
-                <ul>
-                    <li><a href="#">Việc làm văn phòng</a></li>
-                    <li><a href="#">Xưởng cơ khí</a></li>
-                    <li><a href="#">Việc làm online</a></li>
-                </ul>
-            </div>
-            <div class="four columns">
-                <ul>
-                    <li><a href="#">CSS</a></li>
-                    <li><a href="#">HTML5</a></li>
-                    <li><a href="#">Web Development</a></li>
-                    <li><a href="#">Web Design</a></li>
-                    <li><a href="#">eCommerce</a></li>
-                </ul>
+            <div class="four columns"><h4>Danh mục các ngành nghề</h4></div>
+        
+                <div class="four columns">
+                    <ul>
+                        @{
+                            int number = 0;
+                            foreach (var category in ViewBag.stringCategory)
+                            {
+                                <li><a href="~/NguoiTimViec/DanhSach/@category.Key">@category.Value</a></li>
+                                number++;
+                            }
+                        }
+                    </ul>
+                </div>
+               
             </div>
         </div>
-    </div>
 
-    <!-- Categories Group -->
-    <div class="categories-group">
-        <div class="container">
-            <div class="four columns"><h4>Việc làm thời vụ</h4></div>
-            <div class="four columns">
-                <ul>
-                    <li><a href="#">Nhà hàng</a></li>
-                    <li><a href="#">Việc làm trong công ty</a></li>
-                    <li><a href="#">Việc làm tại nhà</a></li>
-                    <li><a href="#">Việc làm cuối tuần</a></li>
-                </ul>
-            </div>
-            <div class="four columns">
-                <ul>
-                    <li><a href="#">Art</a></li>
-                    <li><a href="#">3D</a></li>
-                    <li><a href="#">Adobe Illustrator</a></li>
-                    <li><a href="#">Drawing</a></li>
-                    <li><a href="#">Web Design</a></li>
-                    <li><a href="#">Cartoon</a></li>
-                    <li><a href="#">Graphics</a></li>
-                </ul>
-            </div>
-            <div class="four columns">
-                <ul>
-                    <li><a href="#">Fashion Design</a></li>
-                    <li><a href="#">WordPress</a></li>
-                    <li><a href="#">Editing</a></li>
-                    <li><a href="#">Writing</a></li>
-                    <li><a href="#">T-Shirt Design</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
 
 </div>
 

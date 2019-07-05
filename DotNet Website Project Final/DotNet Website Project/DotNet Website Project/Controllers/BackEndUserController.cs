@@ -24,7 +24,7 @@ namespace DotNet_Website_Project.Controllers
         {
             var uSERs = db.USERs.Include(u => u.ROLE);
 
-            int pageSize = 10;
+            int pageSize = 9;
          
  
             return View(uSERs.ToList().ToPagedList(page ?? 1, pageSize));

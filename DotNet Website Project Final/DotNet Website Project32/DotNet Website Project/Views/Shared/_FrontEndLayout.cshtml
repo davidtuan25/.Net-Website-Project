@@ -1,0 +1,203 @@
+﻿
+<!DOCTYPE html>
+<html lang="vi">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title </title>
+    @Styles.Render("~/Content/FrontEnd")
+
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+</head>
+
+<body>
+    <!-- WRAPPER CONTENT -->
+    <div id="wrapper">
+
+        <!-- HEADER CONTENT -->
+        <header>
+            <div class="container">
+                <div class="sixteen columns">
+
+                    <!-- Logo -->
+                    <div id="logo">
+                        <h1><a href="~/"><img src="/Content/Images/Frontend/logo.png" alt="Work Scout" /></a></h1>
+                    </div>
+
+                    <!-- Menu -->
+                    <nav id="navigation" class="menu">
+                        <ul id="responsive" style="margin-right:100px;">
+
+                            <li>
+                                @Html.ActionLink("Trang Chủ", "TrangChu", "FrontEnd")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Hồ Sơ", "ThongTin", "HoSo")
+                                <ul>
+                                    <li> @Html.ActionLink("Hồ Sơ Cá Nhân", "ThongTin", "HoSo")</li>
+                                    <li> @Html.ActionLink("Cập Nhập Hồ Sơ", "CapNhap", "HoSo")</li>
+                                </ul>
+                            </li>
+                            @if (Session["userRole"] != null)
+                            {
+                                if (int.Parse(Session["userRole"].ToString()) == 3)
+                                {
+                                    <li>
+                                        @Html.ActionLink("Người Tìm Việc", "DanhSach", "NguoiTimViec")
+                                        <ul>
+                                            <li> @Html.ActionLink("Danh Sách Công Việc", "DanhSach", "NguoiTimViec")</li>
+                                            <li> @Html.ActionLink("Tìm Công Việc Mới", "DanhSach", "CongViec")</li>
+                                        </ul>
+                                    </li>
+                                }
+                                if (int.Parse(Session["userRole"].ToString()) == 2)
+                                {
+                                    <li>
+
+                                        @Html.ActionLink("Nhà Tuyển Dụng", "QuanLy", "NhaTuyenDung")
+                                        <ul>
+                                            <li> @Html.ActionLink("Danh Sách Tin Tuyển Dụng", "Index", "SupplierManageJob")</li>
+                                            <li> @Html.ActionLink("Đăng Tin Tuyển Dụng", "Them", "NhaTuyenDung")</li>
+                                        </ul>
+                                    </li>
+                                }
+                            }
+                            <li>
+                                @Html.ActionLink("Ứng Cử Viên Uy Tín", "DanhGia", "NguoiTimViec")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Nhà Tuyển Dụng Uy Tín", "DanhGia", "NhaTuyenDung")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Giới Thiệu", "GioiThieu", "FrontEnd")
+                            </li>
+                        </ul>
+
+
+                        @{
+
+                            var userName = Session["userName"];
+                            if (userName == null)
+                            {
+                                <ul class="responsive float-right" style="margin-right:-50px;">
+                                    <li>
+                                        <i class="fa fa-user"> @Html.ActionLink("Đăng Ký", "DangKy", "FrontEnd")</i>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-lock"> @Html.ActionLink("Đăng Nhập", "DangNhap", "FrontEnd")</i>
+                                    </li>
+                                </ul>
+                            }
+                            else
+                            {
+                                <ul class="responsive float-right" style="margin-right:-50px;">
+                                    <li>
+                                        <i class="fa fa-user"> @Html.ActionLink("Xin chào, " + @userName, "ThongTin", "HoSo")</i>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-lock"> @Html.ActionLink("Đăng Xuất", "DangXuat", "FrontEnd")</i>
+                                    </li>
+                                </ul>
+                            }
+                        }
+
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div class="clearfix"></div>
+        <!-- END HEADER -->
+        <!-- BODY CONTENT -->
+        @RenderBody()
+
+        <!-- END BODY CONTENT-->
+        <!-- FOOTER CONTENT -->
+        <div id="footer">
+            <!-- Main -->
+            <div class="container">
+
+                <div class="seven columns">
+                    <h4>About</h4>
+                    <p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
+                    <a href="#" class="button">Get Started</a>
+                </div>
+
+                <div class="three columns">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Our Blog</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Hiring Hub</a></li>
+                    </ul>
+                </div>
+
+                <div class="three columns">
+                    <h4>Press</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">In the News</a></li>
+                        <li><a href="#">Press Releases</a></li>
+                        <li><a href="#">Awards</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#">Timeline</a></li>
+                    </ul>
+                </div>
+
+                <div class="three columns">
+                    <h4>Browse</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Freelancers by Category</a></li>
+                        <li><a href="#">Freelancers in USA</a></li>
+                        <li><a href="#">Freelancers in UK</a></li>
+                        <li><a href="#">Freelancers in Canada</a></li>
+                        <li><a href="#">Freelancers in Australia</a></li>
+                        <li><a href="#">Find Jobs</a></li>
+
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom -->
+            <div class="container">
+                <div class="footer-bottom">
+                    <div class="sixteen columns">
+                        <h4>Follow Us</h4>
+                        <ul class="social-icons">
+                            <li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
+                            <li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
+                            <li><a class="gplus" href="#"><i class="icon-gplus"></i></a></li>
+                            <li><a class="linkedin" href="#"><i class="icon-linkedin"></i></a></li>
+                        </ul>
+                        <div class="copyrights">©  Copyright 2015 by <a href="#">Work Scout</a>. All Rights Reserved.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Back To Top Button -->
+        <div id="backtotop">
+            <a href="#"></a>
+        </div>
+
+        @Scripts.Render("~/bundles/JQuery")
+        @Scripts.Render("~/bundles/FrontendJS")
+
+
+
+        @{
+            if (!String.IsNullOrEmpty((String)TempData["Message"]))
+            {
+                <script>
+                     alert('@Html.Raw(@TempData["Message"])');
+                </script>
+            }
+        }
+        <!-- END FOOTER -->
+        <!-- END WRAPPER -->
+    </div>
+
+</body>
+</html>

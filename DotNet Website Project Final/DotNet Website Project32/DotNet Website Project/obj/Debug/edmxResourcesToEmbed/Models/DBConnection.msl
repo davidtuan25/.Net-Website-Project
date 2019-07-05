@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PartTimeJobModelStoreContainer" CdmEntityContainer="PartTimeJobEntities">
+    <EntitySetMapping Name="BONUS_TIME">
+      <EntityTypeMapping TypeName="PartTimeJobModel.BONUS_TIME">
+        <MappingFragment StoreEntitySet="BONUS_TIME">
+          <ScalarProperty Name="BONUS_TIME_ID" ColumnName="BONUS_TIME_ID" />
+          <ScalarProperty Name="START_TIME" ColumnName="START_TIME" />
+          <ScalarProperty Name="END_TIME" ColumnName="END_TIME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FEED_BACKLIST">
+      <EntityTypeMapping TypeName="PartTimeJobModel.FEED_BACKLIST">
+        <MappingFragment StoreEntitySet="FEED_BACKLIST">
+          <ScalarProperty Name="RECUMENT_ID" ColumnName="RECUMENT_ID" />
+          <ScalarProperty Name="FEEDBACK_EMPLOYER" ColumnName="FEEDBACK_EMPLOYER" />
+          <ScalarProperty Name="FEEDBACK_EMPLOYEE" ColumnName="FEEDBACK_EMPLOYEE" />
+          <ScalarProperty Name="STAR_CONSIDER" ColumnName="STAR_CONSIDER" />
+          <ScalarProperty Name="CONTENT" ColumnName="CONTENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JOBs">
+      <EntityTypeMapping TypeName="PartTimeJobModel.JOB">
+        <MappingFragment StoreEntitySet="JOB">
+          <ScalarProperty Name="JOB_ID" ColumnName="JOB_ID" />
+          <ScalarProperty Name="CATEGORY_ID" ColumnName="CATEGORY_ID" />
+          <ScalarProperty Name="JOB_CODE" ColumnName="JOB_CODE" />
+          <ScalarProperty Name="JOB_NAME" ColumnName="JOB_NAME" />
+          <ScalarProperty Name="MINIMUM_WAGE" ColumnName="MINIMUM_WAGE" />
+          <ScalarProperty Name="MAXIMUM_WAGE" ColumnName="MAXIMUM_WAGE" />
+          <ScalarProperty Name="TOWN_ID" ColumnName="TOWN_ID" />
+          <ScalarProperty Name="JOB_REQUIREMENT" ColumnName="JOB_REQUIREMENT" />
+          <ScalarProperty Name="JOB_DESCRIPTION" ColumnName="JOB_DESCRIPTION" />
+          <ScalarProperty Name="SHIFT_WORK" ColumnName="SHIFT_WORK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JOB_CATEGORY">
+      <EntityTypeMapping TypeName="PartTimeJobModel.JOB_CATEGORY">
+        <MappingFragment StoreEntitySet="JOB_CATEGORY">
+          <ScalarProperty Name="CATEGORY_ID" ColumnName="CATEGORY_ID" />
+          <ScalarProperty Name="CATEGORY_NAME" ColumnName="CATEGORY_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JOB_RECUMENT">
+      <EntityTypeMapping TypeName="PartTimeJobModel.JOB_RECUMENT">
+        <MappingFragment StoreEntitySet="JOB_RECUMENT">
+          <ScalarProperty Name="RECUMENT_ID" ColumnName="RECUMENT_ID" />
+          <ScalarProperty Name="EMPLOYER_ID" ColumnName="EMPLOYER_ID" />
+          <ScalarProperty Name="EMPLOYEE_AMOUNT" ColumnName="EMPLOYEE_AMOUNT" />
+          <ScalarProperty Name="JOB_ID" ColumnName="JOB_ID" />
+          <ScalarProperty Name="START_DATE" ColumnName="START_DATE" />
+          <ScalarProperty Name="WORK_MONTH_AMOUNT" ColumnName="WORK_MONTH_AMOUNT" />
+          <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+          <ScalarProperty Name="APPROVAL_DEADLINE" ColumnName="APPROVAL_DEADLINE" />
+          <ScalarProperty Name="REFERRAL_WAGE_COST" ColumnName="REFERRAL_WAGE_COST" />
+          <ScalarProperty Name="RECUMENT_STATUS" ColumnName="RECUMENT_STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JOB_RECUMENT_PROCESSING">
+      <EntityTypeMapping TypeName="PartTimeJobModel.JOB_RECUMENT_PROCESSING">
+        <MappingFragment StoreEntitySet="JOB_RECUMENT_PROCESSING">
+          <ScalarProperty Name="RECUMENT_ID" ColumnName="RECUMENT_ID" />
+          <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+          <ScalarProperty Name="APPLYING_DATE" ColumnName="APPLYING_DATE" />
+          <ScalarProperty Name="APPROVAL_STATUS" ColumnName="APPROVAL_STATUS" />
+          <ScalarProperty Name="JOB_STATUS" ColumnName="JOB_STATUS" />
+          <ScalarProperty Name="WAGE_PAYMENT_STATUS" ColumnName="WAGE_PAYMENT_STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JOB_WAGE_BILL">
+      <EntityTypeMapping TypeName="PartTimeJobModel.JOB_WAGE_BILL">
+        <MappingFragment StoreEntitySet="JOB_WAGE_BILL">
+          <ScalarProperty Name="JOB_BILL_ID" ColumnName="JOB_BILL_ID" />
+          <ScalarProperty Name="RECUMENT_ID" ColumnName="RECUMENT_ID" />
+          <ScalarProperty Name="EMPLOYER_ID" ColumnName="EMPLOYER_ID" />
+          <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+          <ScalarProperty Name="JOB_WAGE_COST" ColumnName="JOB_WAGE_COST" />
+          <ScalarProperty Name="EMLOYER_CARDNUMBER" ColumnName="EMLOYER_CARDNUMBER" />
+          <ScalarProperty Name="EMPLOYEE_CARDNUMBER" ColumnName="EMPLOYEE_CARDNUMBER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROFILEs">
+      <EntityTypeMapping TypeName="PartTimeJobModel.PROFILE">
+        <MappingFragment StoreEntitySet="PROFILE">
+          <ScalarProperty Name="PROFILE_ID" ColumnName="PROFILE_ID" />
+          <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+          <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+          <ScalarProperty Name="IDENTITY_CARD" ColumnName="IDENTITY_CARD" />
+          <ScalarProperty Name="BIRTHDAY" ColumnName="BIRTHDAY" />
+          <ScalarProperty Name="SEX" ColumnName="SEX" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="TOWN_ID" ColumnName="TOWN_ID" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="AVATAR" ColumnName="AVATAR" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROVINCEs">
+      <EntityTypeMapping TypeName="PartTimeJobModel.PROVINCE">
+        <MappingFragment StoreEntitySet="PROVINCE">
+          <ScalarProperty Name="PROVINCE_ID" ColumnName="PROVINCE_ID" />
+          <ScalarProperty Name="PROVINCE_NAME" ColumnName="PROVINCE_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REFERRAL_WAGE_BILL">
+      <EntityTypeMapping TypeName="PartTimeJobModel.REFERRAL_WAGE_BILL">
+        <MappingFragment StoreEntitySet="REFERRAL_WAGE_BILL">
+          <ScalarProperty Name="REFERRAL_ID" ColumnName="REFERRAL_ID" />
+          <ScalarProperty Name="RECUMENT_ID" ColumnName="RECUMENT_ID" />
+          <ScalarProperty Name="REFERRAL_WAGE_COST" ColumnName="REFERRAL_WAGE_COST" />
+          <ScalarProperty Name="PAYMENT_DATE" ColumnName="PAYMENT_DATE" />
+          <ScalarProperty Name="CARD_NUMBER" ColumnName="CARD_NUMBER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ROLEs">
+      <EntityTypeMapping TypeName="PartTimeJobModel.ROLE">
+        <MappingFragment StoreEntitySet="ROLE">
+          <ScalarProperty Name="ROLE_ID" ColumnName="ROLE_ID" />
+          <ScalarProperty Name="ROLE_NAME" ColumnName="ROLE_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SHIFT_WORK_SCHEDULE">
+      <EntityTypeMapping TypeName="PartTimeJobModel.SHIFT_WORK_SCHEDULE">
+        <MappingFragment StoreEntitySet="SHIFT_WORK_SCHEDULE">
+          <ScalarProperty Name="SHIFT_ID" ColumnName="SHIFT_ID" />
+          <ScalarProperty Name="MON_WORK_TIME" ColumnName="MON_WORK_TIME" />
+          <ScalarProperty Name="TUES_WORK_TIME" ColumnName="TUES_WORK_TIME" />
+          <ScalarProperty Name="WED_WORK_TIME" ColumnName="WED_WORK_TIME" />
+          <ScalarProperty Name="THURS_WORK_TIME" ColumnName="THURS_WORK_TIME" />
+          <ScalarProperty Name="FRI_WORK_TIME" ColumnName="FRI_WORK_TIME" />
+          <ScalarProperty Name="SAT_WORK_TIME" ColumnName="SAT_WORK_TIME" />
+          <ScalarProperty Name="SUN_WORK_TIME" ColumnName="SUN_WORK_TIME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TOWNs">
+      <EntityTypeMapping TypeName="PartTimeJobModel.TOWN">
+        <MappingFragment StoreEntitySet="TOWN">
+          <ScalarProperty Name="TOWN_ID" ColumnName="TOWN_ID" />
+          <ScalarProperty Name="PROVINCE_ID" ColumnName="PROVINCE_ID" />
+          <ScalarProperty Name="TOWN_NAME" ColumnName="TOWN_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TYPEPAYCARDs">
+      <EntityTypeMapping TypeName="PartTimeJobModel.TYPEPAYCARD">
+        <MappingFragment StoreEntitySet="TYPEPAYCARD">
+          <ScalarProperty Name="TYPEPAYCARD_ID" ColumnName="TYPEPAYCARD_ID" />
+          <ScalarProperty Name="PAYCARD_NAME" ColumnName="PAYCARD_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERs">
+      <EntityTypeMapping TypeName="PartTimeJobModel.USER">
+        <MappingFragment StoreEntitySet="USER">
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="USER_STATUS" ColumnName="USER_STATUS" />
+          <ScalarProperty Name="ROLE_ID" ColumnName="ROLE_ID" />
+          <ScalarProperty Name="JOINED_DATE" ColumnName="JOINED_DATE" />
+          <ScalarProperty Name="FACEBOOK_ID" ColumnName="FACEBOOK_ID" />
+          <ScalarProperty Name="GMAIL_ID" ColumnName="GMAIL_ID" />
+          <ScalarProperty Name="RESET_TOKEN" ColumnName="RESET_TOKEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERPAYCARDS">
+      <EntityTypeMapping TypeName="PartTimeJobModel.USERPAYCARD">
+        <MappingFragment StoreEntitySet="USERPAYCARDS">
+          <ScalarProperty Name="PAYCARD_NO" ColumnName="PAYCARD_NO" />
+          <ScalarProperty Name="CARD_NUMBER" ColumnName="CARD_NUMBER" />
+          <ScalarProperty Name="PROFILE_ID" ColumnName="PROFILE_ID" />
+          <ScalarProperty Name="TYPEPAYCARD_ID" ColumnName="TYPEPAYCARD_ID" />
+          <ScalarProperty Name="NOW_USING" ColumnName="NOW_USING" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WORK_TIME">
+      <EntityTypeMapping TypeName="PartTimeJobModel.WORK_TIME">
+        <MappingFragment StoreEntitySet="WORK_TIME">
+          <ScalarProperty Name="WORK_TIME_ID" ColumnName="WORK_TIME_ID" />
+          <ScalarProperty Name="START_TIME" ColumnName="START_TIME" />
+          <ScalarProperty Name="END_TIME" ColumnName="END_TIME" />
+          <ScalarProperty Name="FIRST_BONUSTIME_ID" ColumnName="FIRST_BONUSTIME_ID" />
+          <ScalarProperty Name="SECOND_BONUSTIME_ID" ColumnName="SECOND_BONUSTIME_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

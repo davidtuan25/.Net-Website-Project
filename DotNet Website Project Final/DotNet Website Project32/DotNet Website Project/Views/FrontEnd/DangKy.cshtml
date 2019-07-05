@@ -1,0 +1,73 @@
+﻿@model DotNet_Website_Project.Models.USER
+
+@{
+    ViewBag.Title = "Trang Đăng Ký";
+    Layout = "~/Views/Shared/_FrontEndLayout.cshtml";
+}
+
+<div id="titlebar" class="single" style="margin-top:3%">
+    <div class="container">
+        <div class="sixteen columns">
+            <h2>@ViewBag.Title</h2>
+            <nav id="breadcrumbs">
+                <ul>
+                    <li>Bạn đang ở :</li>
+                    <li>@Html.ActionLink((String)@ViewBag.PreviousPage, (String)@ViewBag.PreviousAction, (String)ViewBag.PreviousController)</li>
+                    <li>@ViewBag.Title</li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Container -->
+<div class="container">
+
+    <div class="my-account">
+
+
+        <div class="tabs-container">
+            <!-- Login -->
+            <div class="tab-content" id="tab1" style="display: none;">
+
+                <h3 style="text-align: center;" class="margin-bottom-10 margin-top-10">Đăng ký</h3>
+
+                @using (Html.BeginForm("XacThucDangKy", "FrontEnd", FormMethod.Get))
+                {
+
+                    <p class="form-row form-row-wide">
+                        @Html.LabelFor(model => model.USERNAME)
+                        @Html.EditorFor(model => model.USERNAME)
+                        <label class="text-danger">@ViewBag.UsernameError</label>
+                        @Html.ValidationMessageFor(model => model.USERNAME, null, new { @class = "text-danger" })
+                    </p>
+
+                    <p class="form-row form-row-wide">
+                        @Html.LabelFor(model => model.PASSWORD)
+                        @Html.EditorFor(model => model.PASSWORD)
+                        @Html.ValidationMessageFor(model => model.PASSWORD, null, new { @class = "text-danger" })
+                    </p>
+                    <p class="form-row form-row-wide">
+                        @Html.LabelFor(model => model.PASSWORDAGAIN)
+                        @Html.EditorFor(model => model.PASSWORDAGAIN)
+                        @Html.ValidationMessageFor(model => model.PASSWORDAGAIN, null, new { @class = "text-danger" })
+                    </p>
+                    <style type=text/css>
+                        #ROLE_ID {
+                            height: 50px;
+                        }
+                    </style>
+                    <p class="form-row form-row-wide">
+                        @Html.LabelFor(model => model.ROLE_ID)
+                        @Html.DropDownList("ROLE_ID", (IEnumerable<SelectListItem>)ViewBag.RoleList)
+                    </p>
+
+
+                    <p style="width: 29%;margin : 0 auto" class="form-row">
+                        <input type="submit" class="button" value="Đăng ký" />
+                    </p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div class="margin-top-30"></div>

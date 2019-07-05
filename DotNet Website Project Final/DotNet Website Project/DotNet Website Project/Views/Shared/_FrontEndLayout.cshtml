@@ -27,60 +27,47 @@
 
                     <!-- Menu -->
                     <nav id="navigation" class="menu">
-                        <ul id="responsive" style="margin-right:100px;">
+                        <ul id="responsive">
 
                             <li>
                                 @Html.ActionLink("Trang Chủ", "TrangChu", "FrontEnd")
                             </li>
                             <li>
-                                @Html.ActionLink("Hồ Sơ", "ThongTin", "HoSo")
+                                @Html.ActionLink("Hồ Sơ", "Profile", "CV")
                                 <ul>
-                                    <li> @Html.ActionLink("Hồ Sơ Cá Nhân", "ThongTin", "HoSo")</li>
-                                    <li> @Html.ActionLink("Cập Nhập Hồ Sơ", "CapNhap", "HoSo")</li>
+                                    <li> @Html.ActionLink("Hồ Sơ Cá Nhân", "Profile", "CV")</li>
+                                    <li> @Html.ActionLink("Cập Nhập Hồ Sơ", "Update", "CV")</li>
                                 </ul>
                             </li>
-                            @if (Session["userRole"] != null)
-                            {
-                                if (int.Parse(Session["userRole"].ToString()) == 3)
-                                {
-                                    <li>
-                                        @Html.ActionLink("Người Tìm Việc", "DanhSach", "NguoiTimViec")
-                                        <ul>
-                                            <li> @Html.ActionLink("Danh Sách Công Việc", "DanhSach", "NguoiTimViec")</li>
-                                            <li> @Html.ActionLink("Tìm Công Việc Mới", "DanhSach", "CongViec")</li>
-                                        </ul>
-                                    </li>
-                                }
-                                if (int.Parse(Session["userRole"].ToString()) == 2)
-                                {
-                                    <li>
-
-                                        @Html.ActionLink("Nhà Tuyển Dụng", "QuanLy", "NhaTuyenDung")
-                                        <ul>
-                                            <li> @Html.ActionLink("Danh Sách Tin Tuyển Dụng", "Index", "SupplierManageJob")</li>
-                                            <li> @Html.ActionLink("Đăng Tin Tuyển Dụng", "Them", "NhaTuyenDung")</li>
-                                        </ul>
-                                    </li>
-                                }
-                            }
                             <li>
-                                @Html.ActionLink("Ứng Cử Viên Uy Tín", "DanhGia", "NguoiTimViec")
+                                @Html.ActionLink("Người Tìm Việc", "Manage", "Applier")
+                                <ul>
+                                    <li> @Html.ActionLink("Tình Trạng Công Việc", "Manage", "Applier")</li>
+                                    <li> @Html.ActionLink("Tìm Công Việc Mới", "JobList", "Applier")</li>
+                                </ul>
                             </li>
                             <li>
-                                @Html.ActionLink("Nhà Tuyển Dụng Uy Tín", "DanhGia", "NhaTuyenDung")
+                                @Html.ActionLink("Nhà Tuyển Dụng", "Manage", "Supplier")
+                                <ul>
+                                    <li> @Html.ActionLink("Danh Sách Tin Đã Đăng", "Index", "SupplierManageJob")</li>
+                                    <li> @Html.ActionLink("Đăng Tin Tuyển Dụng", "Index", "SupplierManageJob")</li>
+                                </ul>
                             </li>
                             <li>
-                                @Html.ActionLink("Giới Thiệu", "GioiThieu", "FrontEnd")
+                                @Html.ActionLink("Ứng Cử Viên Uy Tín", "Review", "Applier")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Nhà Tuyển Dụng Uy Tín", "Review", "Supplier")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Giới Thiệu", "About", "FrontEnd")
                             </li>
                         </ul>
-
-
                         @{
-
                             var userName = Session["userName"];
                             if (userName == null)
                             {
-                                <ul class="responsive float-right" style="margin-right:-50px;">
+                                <ul class="responsive float-right" style="margin-right:-80px;">
                                     <li>
                                         <i class="fa fa-user"> @Html.ActionLink("Đăng Ký", "DangKy", "FrontEnd")</i>
                                     </li>
@@ -91,7 +78,7 @@
                             }
                             else
                             {
-                                <ul class="responsive float-right" style="margin-right:-50px;">
+                                <ul class="responsive float-right" style="margin-right:-80px;">
                                     <li>
                                         <i class="fa fa-user"> @Html.ActionLink("Xin chào, " + @userName, "ThongTin", "HoSo")</i>
                                     </li>
@@ -101,6 +88,7 @@
                                 </ul>
                             }
                         }
+
 
                     </nav>
                 </div>

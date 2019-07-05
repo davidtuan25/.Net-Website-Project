@@ -132,19 +132,13 @@ namespace DotNet_Website_Project.Controllers
 
 
 
-                if (_currentRoleId == 3 && _requestRoleId == 2)
+                if (_currentRoleId == 3 && _currentRoleId == 2)
                 {
-                    var Url = new UrlHelper(filterContext.RequestContext);
-                    var url = Url.Action("TrangChu", "FrontEnd");
-                    filterContext.Result = new RedirectResult(url);
                     //add some code here
                 }
 
-                if (_currentRoleId == 2 && _requestRoleId == 3)
+                if (_currentRoleId == 2 && _currentRoleId == 3)
                 {
-                    var Url = new UrlHelper(filterContext.RequestContext);
-                    var url = Url.Action("TrangChu", "FrontEnd");
-                    filterContext.Result = new RedirectResult(url);
                     //add some code here
                 }
                 return;

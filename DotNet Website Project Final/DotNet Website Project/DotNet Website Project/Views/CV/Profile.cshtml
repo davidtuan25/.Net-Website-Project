@@ -1,0 +1,120 @@
+﻿@model DotNet_Website_Project.Models.PROFILE
+
+@{
+    ViewBag.Title = "Hồ sơ cá nhân";
+    Layout = "~/Views/Shared/_FrontEndLayout.cshtml";
+}
+
+
+<!-- Titlebar
+================================================== -->
+<div id="titlebar" class="resume">
+    <div class="container">
+        <div class="ten columns">
+            <div class="resume-titlebar">
+                <img style="margin-top: 10%;" src="https://localhost:44339/Content/images/Frontend/resumes-list-avatar-01.png" alt="">
+                <div class="resumes-list-content">
+                    <h4>Họ và tên : <span>@Model.FIRST_NAME @Model.LAST_NAME</span></h4>
+                    @{if (Model.SEX == "male")
+                        {
+                            <span class="icons">
+                                <a href="#">
+                                    <i class="fa fa-child"></i>Nam
+                                </a>
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="icons">
+                                <a href="#">
+                                    <i class="fa fa-child"></i>Nữ
+                                </a>
+                            </span>
+                            }
+                        }
+
+                        <span class="icons"><a href="#"><i class=" 	fa fa-calendar"></i> Ngày sinh : @Model.BIRTHDAY</a></span>
+                        <span class="icons"><a href="mailto:john.doe@example.com"><i class="fa fa-envelope"></i>Email : @Model.EMAIL .</a></span>
+                        <span class="icons"><i class="fa fa-map-marker"></i> @Model.ADDRESS , @Model.TOWN.TOWN_NAME , @Model.TOWN.PROVINCE.PROVINCE_NAME</span>
+
+                        <div class="clearfix"></div>
+
+                    </div>
+            </div>
+        </div>
+
+        <div class="six columns">
+            <div class="two-buttons">
+
+                <a href="~/CV/Update" class=" button"><i class="fa fa-envelope"></i>Sửa Thông Tin</a>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Content
+================================================== -->
+<div class="container">
+    <!-- Recent Jobs -->
+    <div class="eight columns">
+        <div class="padding-right">
+
+            <h3 class="margin-bottom-15">Thông tin nghề nghiệp</h3>
+
+            <p class="margin-reset">
+               @Model.DESCRIPTION
+            </p>
+
+            <br>
+
+            <ul class="list-1">
+                <div class="six columns">
+
+
+                    <button style="font-weight: 700" class="fa fa-star">&nbsp Xem đánh giá làm việc </button>
+                </div>
+            </ul>
+
+        </div>
+    </div>
+
+
+    <!-- Widgets -->
+    <div class="eight columns">
+
+        <h3 class="margin-bottom-20">5 Việc làm gần nhất </h3>
+
+        <!-- Resume Table -->
+        <dl class="resume-table">
+            <dt>
+                <small class="date">2006 - 2007</small>
+                <strong></strong>
+            </dt>
+            <dt>
+                <small class="date">2009 - 2010</small>
+                <strong>Nhân viên SEO</strong>
+            </dt>
+            <dt>
+                <small class="date">2012 - 2015</small>
+                <strong>Hỗ trợ nhân viên IT</strong>
+            </dt>
+            <dt>
+                <small class="date">2015 - 2016</small>
+                <strong>Lập trình C# thuê</strong>
+            </dt>
+            <dt>
+                <small class="date">2017 - 2018</small>
+                <strong>Lập trình Game</strong>
+            </dt>
+
+
+        </dl>
+
+    </div>
+
+</div>
+

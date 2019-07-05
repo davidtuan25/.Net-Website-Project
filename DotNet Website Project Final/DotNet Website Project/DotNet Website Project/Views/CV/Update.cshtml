@@ -1,0 +1,105 @@
+﻿@model DotNet_Website_Project.Models.PROFILE
+
+@{
+    ViewBag.Title = "Hồ sơ cá nhân";
+    Layout = "~/Views/Shared/_FrontEndLayout.cshtml";
+}
+
+
+<!-- Titlebar
+================================================== -->
+<div id="titlebar" class="single submit-page">
+    <div class="container">
+
+        <div class="sixteen columns">
+            <h2><i class="fa fa-edit"></i> Cập nhập thông tin tài khoản <font style="color:red">@Session["userName"]</font></h2>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Content
+================================================== -->
+<div class="container">
+
+    <!-- Submit Page -->
+    <div class="sixteen columns">
+        <div class="submit-page">
+
+            <!-- Notice -->
+            <div class="notification notice closeable margin-bottom-40">
+                <p><span>Lưu ý ?</span> Hãy cập nhập thông tin cẩn thận để tăng độ chính xác .</p>
+            </div>
+
+
+            <!-- <div class="form">
+        <h5>Ảnh đại diện</h5>
+        <a href="#" class="button linkedin-btn">Cập nhập</a>
+    </div> In -->
+            <!-- Logo -->
+            @using (Html.BeginForm("ValidateUpdate", "CV", FormMethod.Post))
+            {
+                <div class="form">
+                    <h5>Ảnh Đại Diện <span></span></h5>
+                    <input type="file" name="avatar" />
+                </div>
+                <!-- Email -->
+                <div class="form">
+                    <h5>Họ</h5>
+                    <input class="search-field" name="first_name" type="text" placeholder="Nhập vào họ mơi" value="@Model.FIRST_NAME" />
+                </div>
+                <div class="form">
+                    <h5>Tên</h5>
+                    <input class="search-field" name="last_name" type="text" placeholder="Nhập vào tên đệm và tên" value="@Model.LAST_NAME" />
+                </div>
+                <div class="form">
+                    <h5>Giới tính</h5>
+                    <select class="search-field" style="height:50px;" name="sex">
+                        <option value"male">Nam</option>
+                        <option value"female">Nữ</option>
+                    </select>
+                </div>
+                <div class="form">
+                    <h5>Ngày sinh</h5>
+                    <input class="search-field" name="birthday" type="date" format="dd/MM/yyyy" placeholder="" value="@Model.BIRTHDAY" />
+                </div>
+                <!-- Email -->
+                <div class="form">
+                    <h5>Email</h5>
+                    <input class="search-field" type="email" name="email" placeholder="Nhập vào Email" value="@Model.EMAIL" />
+                </div>
+                <div class="form">
+                    <h5>Phone</h5>
+                    <input class="search-field" type="text" name="phone" placeholder="Nhập vào số điện thoại" value="@Model.PHONE" />
+                </div>
+                <!-- Title -->
+                <div class="form">
+                    <h5>Số Chứng Minh Thư</h5>
+                    <input class="search-field" type="text" name="idcard" placeholder="Nhập vào 12 số CMND" value="@Model.IDENTITY_CARD" />
+                </div>
+
+                <!-- Location -->
+       
+         
+                <div class="form">
+                    <h5>Địa Chỉ Nơi Sinh Sống</h5>
+                    <input class="search-field" type="text" name="address" placeholder="Nhập vào địa chỉ nơi sống" value="@Model.ADDRESS" />
+                </div>
+              
+                <!-- Description -->
+                <div class="form">
+                    <h5>Thông Tin Chi Tiết Nghề Nghiệp</h5>
+                    <textarea class="WYSIWYG" name="decsription" cols="40" rows="3" id="summary" spellcheck="true">@Model.DESCRIPTION</textarea>
+                </div>
+
+
+
+
+                <div class="divider margin-top-0 padding-reset"></div>
+                <input type="submit"value="Cập nhập " class="button linkedin-btn big margin-top-5">
+            }
+        </div>
+    </div>
+
+</div>

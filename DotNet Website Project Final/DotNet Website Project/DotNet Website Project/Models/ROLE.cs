@@ -22,7 +22,7 @@ namespace DotNet_Website_Project.Models
         }
         [DisplayName("Tên chức vụ")]
         public byte ROLE_ID { get; set; }
-        
+
         [DisplayName("Tên vai trò")]
         public string ROLE_NAME { get; set; }
 

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PartTimeJobModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PartTimeJobModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BONUS_TIME">
           <Key>
             <PropertyRef Name="BONUS_TIME_ID" />
@@ -656,8 +656,7 @@
             <End Role="SHIFT_WORK_SCHEDULE" EntitySet="SHIFT_WORK_SCHEDULE" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PartTimeJobModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1237,7 +1236,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="PartTimeJobEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BONUS_TIME" EntityType="Self.BONUS_TIME" />
           <EntitySet Name="FEED_BACKLIST" EntityType="Self.FEED_BACKLIST" />
           <EntitySet Name="JOBs" EntityType="Self.JOB" />
@@ -1373,7 +1372,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PartTimeJobModelStoreContainer" CdmEntityContainer="PartTimeJobEntities">
+        <EntityContainerMapping StorageEntityContainer="PartTimeJobModelStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="BONUS_TIME">
             <EntityTypeMapping TypeName="PartTimeJobModel.BONUS_TIME">
               <MappingFragment StoreEntitySet="BONUS_TIME">

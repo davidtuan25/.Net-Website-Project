@@ -7,99 +7,83 @@
     Layout = "~/Views/Shared/_BackendLayout.cshtml";
 }
 
-    <div style="margin-left: 15px; margin-right:15px">
-        <h2 style="text-align:center ;margin-top: 25px;">Quản lý thành viên</h2>
+<h2 style="text-align:center">Chỉnh sửa thành viên</h2>
 
-        <div style="text-align: center; margin-top: 25px; margin-bottom: 25px;">
-            @Html.ActionLink("Thêm người dùng mới", "Create", null, new { @class = "btn btn-primary" })
-        </div>
-        @*<div class="row ">
-            <div class="col-4"></div>
-    <div class="col-4">
-        @using (Html.BeginForm("Search", "BackEnd", FormMethod.Post))
-        {
-            <div class="input-group">
-                <input type="text" class="form-control" id="search" name="search" placeholder="Tìm kiếm tên người dùng">
-                <span class="input-group-btn">
-                    <button class="btn btn-primary" type="submit">Tìm kiếm</button>
-                </span>
-            </div>
-        }
-    </div>
-</div>*@
+<div style="text-align: center; margin-top: 25px; margin-bottom: 25px;">
+    @Html.ActionLink("Thêm người dùng mới", "Create", null, new { @class = "btn btn-primary" })
+</div>
+<table class="table"  >
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().USERNAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().PASSWORD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().USER_STATUS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().JOINED_DATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().FACEBOOK_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().GMAIL_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().RESET_TOKEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().ROLE.ROLE_NAME)
+        </th>
+        <th></th>
+    </tr>
 
-        <table class="table table-bordered" style="margin-top:20px;">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.First().USERNAME)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.First().PASSWORD)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.First().USER_STATUS)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.First().JOINED_DATE)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.First().FACEBOOK_ID)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.First().GMAIL_ID)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.First().RESET_TOKEN)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.First().ROLE.ROLE_NAME)
-                </th>
-                <th></th>
-            </tr>
-
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.USERNAME)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PASSWORD)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.USER_STATUS)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.JOINED_DATE)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FACEBOOK_ID)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.GMAIL_ID)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.RESET_TOKEN)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ROLE.ROLE_NAME)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Sửa", "Edit", new { id = item.USER_ID }, new { @class = "btn btn-primary" })
-                        @Html.ActionLink("Xóa", "Delete", new { id = item.USER_ID }, new { @class = "btn btn-danger" })
-                    </td>
-                </tr>
-            }
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.USERNAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PASSWORD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.USER_STATUS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JOINED_DATE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FACEBOOK_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GMAIL_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RESET_TOKEN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ROLE.ROLE_NAME)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.USER_ID }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Xóa", "Delete", new { id = item.USER_ID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
 
 
-        </table>
+</table>
 
-        <div style=" text-align: right;margin-right:80px;">
-            <p>
-                Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) của @Model.PageCount
+<div style=" text-align: right;margin-right:80px;">
+    <p >
+        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) của @Model.PageCount
 
-                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
-            </p>
-        </div>
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+    </p>
+</div>
 
-    </div>
+

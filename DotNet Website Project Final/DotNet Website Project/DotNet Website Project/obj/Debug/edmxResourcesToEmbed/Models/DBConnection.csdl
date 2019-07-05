@@ -576,7 +576,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="PartTimeJobEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="BONUS_TIME" EntityType="Self.BONUS_TIME" />
     <EntitySet Name="FEED_BACKLIST" EntityType="Self.FEED_BACKLIST" />
     <EntitySet Name="JOBs" EntityType="Self.JOB" />
