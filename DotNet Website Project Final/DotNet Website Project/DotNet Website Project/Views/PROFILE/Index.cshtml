@@ -1,0 +1,105 @@
+﻿@model  PagedList.IPagedList<DotNet_Website_Project.Models.PROFILE>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_BackendLayout.cshtml";
+}
+
+    <div style="margin-left: 15px; margin-right:15px">
+        <h2 style="text-align:center ;margin-top: 25px;">Quản lý thành viên</h2>
+
+        <div style="text-align: center; margin-top: 25px; margin-bottom: 25px;">
+            @Html.ActionLink("Thêm Profile", "Create", null, new { @class = "btn btn-primary" })
+        </div>
+        <table class="table table-bordered">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().FIRST_NAME)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().LAST_NAME)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().IDENTITY_CARD)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().BIRTHDAY)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().SEX)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().EMAIL)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().PHONE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().ADDRESS)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().AVATAR)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().DESCRIPTION)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().TOWN.TOWN_NAME)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FIRST_NAME)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LAST_NAME)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IDENTITY_CARD)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BIRTHDAY)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SEX)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EMAIL)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PHONE)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ADDRESS)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AVATAR)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DESCRIPTION)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TOWN.TOWN_NAME)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Sửa", "Edit", new { id = item.PROFILE_ID}, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("Xóa", "Delete", new { id = item.PROFILE_ID }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+        <div style=" text-align: right;margin-right:80px;">
+            <p>
+                Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) của @Model.PageCount
+
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+            </p>
+        </div>
+    </div>

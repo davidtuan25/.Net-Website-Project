@@ -107,11 +107,11 @@
                             }
                         </td>
                         <td>
-                            <a asp-controller="SupplierManageJobController" asp-action="Accept" 
+                            <a asp-controller="SupplierManageJob" asp-action="Accept" 
                                asp-route-id="@item.RECUMENT_ID"
                                asp-route-empId="@item.EMPLOYEE_ID">Accept</a>
-                            @Html.ActionLink("Accept", "Accept", "SupplierManageJobController",item, new { @class="btn btn-success"})
-                            @Html.ActionLink("Decline", "Decline", new { id = Model.RECUMENT_ID, empId = Model.EMPLOYER_ID, appStatus = false }, new{ @class="btn btn-danger"})
+                            @Html.ActionLink("Accept", "Accept",item, new { @class="btn btn-success"})
+                            @Html.ActionLink("Decline", "Decline", item, new{ @class="btn btn-danger"})
                             
                         </td>
                         <p hidden>Số lượng đăng ký : @(++number)</p>

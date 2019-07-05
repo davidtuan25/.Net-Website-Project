@@ -165,6 +165,7 @@
     <Compile Include="Controllers\BackEndUserController.cs" />
     <Compile Include="Controllers\FrontEndController.cs" />
     <Compile Include="Controllers\ManageJobController.cs" />
+    <Compile Include="Controllers\PROFILEController.cs" />
     <Compile Include="Controllers\SupplierManageJobController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -609,6 +610,11 @@
     <Content Include="Views\SupplierManageJob\Details.cshtml" />
     <Content Include="Views\SupplierManageJob\Edit.cshtml" />
     <Content Include="Views\SupplierManageJob\Index.cshtml" />
+    <Content Include="Views\PROFILE\Create.cshtml" />
+    <Content Include="Views\PROFILE\Delete.cshtml" />
+    <Content Include="Views\PROFILE\Details.cshtml" />
+    <Content Include="Views\PROFILE\Edit.cshtml" />
+    <Content Include="Views\PROFILE\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

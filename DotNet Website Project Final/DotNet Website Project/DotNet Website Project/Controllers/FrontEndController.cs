@@ -336,7 +336,7 @@ namespace DotNet_Website_Project.Controllers
                         Session["userName"] = getUser.USERNAME;
                         Session["userRole"] = getUser.ROLE_ID;
 
-                        if (getUser.USER_ID == 1)
+                        if (getUser.ROLE_ID == 1)
                         {
                             return RedirectToAction("Index", "BackEndUser");
                         }

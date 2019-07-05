@@ -10,6 +10,7 @@ using DotNet_Website_Project.Models;
 
 namespace DotNet_Website_Project.Controllers
 {
+    [AuthorizationUser(RoleId = 1)]
     public class ManageJobController : Controller
     {
         private PartTimeJobEntitiesEntities db = new PartTimeJobEntitiesEntities();

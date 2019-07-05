@@ -17,7 +17,8 @@ namespace DotNet_Website_Project.Controllers
         // GET: SupplierManageJob
         public ActionResult Index()
         {
-            var jOB_RECUMENT = db.JOB_RECUMENT.Include(j => j.JOB).Include(j => j.PROFILE);
+            int number = Int32.Parse(Session["userID"].ToString());
+            var jOB_RECUMENT = db.JOB_RECUMENT.Include(j => j.JOB).Include(j => j.PROFILE).Where(j=> j.EMPLOYER_ID == number);
             return View(jOB_RECUMENT.ToList());
         }
 
@@ -124,13 +125,22 @@ namespace DotNet_Website_Project.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Accept(int id,int empId)
+        public ActionResult Accept(JOB_RECUMENT_PROCESSING item)
         {
-            JOB_RECUMENT_PROCESSING jOB_RECUMENT_PROCCESSING = db.JOB_RECUMENT_PROCESSING.Find(id, empId);
+            JOB_RECUMENT_PROCESSING jOB_RECUMENT_PROCCESSING = item;
             jOB_RECUMENT_PROCCESSING.APPROVAL_STATUS = true;
             db.Entry(jOB_RECUMENT_PROCCESSING).State = EntityState.Modified;
             db.SaveChanges();
-            return Details(jOB_RECUMENT_PROCCESSING.RECUMENT_ID);
+            return View("Details", db.JOB_RECUMENT.Find(item.RECUMENT_ID));
+        }
+
+        public ActionResult Decline(JOB_RECUMENT_PROCESSING item)
+        {
+            JOB_RECUMENT_PROCESSING jOB_RECUMENT_PROCCESSING = item;
+            jOB_RECUMENT_PROCCESSING.APPROVAL_STATUS = false;
+            db.Entry(jOB_RECUMENT_PROCCESSING).State = EntityState.Modified;
+            db.SaveChanges();
+            return View("Details", db.JOB_RECUMENT.Find(item.RECUMENT_ID));
         }
 
         protected override void Dispose(bool disposing)
